@@ -1,0 +1,50 @@
+/* 🧡 Astoria Classic Sans */
+@font-face {
+  font-family: 'Astoria Classic Sans';
+  src: url('./assets/fonts/Astoria\ Classic\ Sans\ Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Astoria Classic Sans';
+  src: url('./assets/fonts/AstoriaClassicSans-Roman_2.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 💛 San Francisco Display */
+@font-face {
+  font-family: 'San Francisco Display';
+  src: url('./assets/fonts/SanFranciscoDisplay-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'San Francisco Display';
+  src: url('./assets/fonts/SanFranciscoDisplay-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 💙 SF Pro */
+@font-face {
+  font-family: 'SF Pro';
+  src: url('./assets/fonts/SF-Pro.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('./assets/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
