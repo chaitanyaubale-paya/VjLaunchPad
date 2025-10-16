@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
 import SpiritualZone from '../../assets/images/pnpkc/aminities/spiritualZone.jpg'
 import KidsPlay from '../../assets/images/pnpkc/aminities/kidsPlay.jpg'
@@ -58,13 +57,13 @@ const LifeAtPkpnc = () => {
   return (
     <Box
       sx={{
-        backgroundColor: isMobile ? "#361617":"#1B152B",
+        backgroundColor: isMobile ? "#272727":"#272727",
         color: "#fff",
         py: 2,
         px: { xs: 2, md: 0 },
         textAlign: "center",
         borderRadius: "10px",
-        width:{md:'100%'}
+        width:{xs:"100%",md:'100%'}
       }}
     >
       {/* Section Heading */}
@@ -72,8 +71,8 @@ const LifeAtPkpnc = () => {
         sx={{
           fontFamily: "'Astoria Classic Sans', serif",
           fontWeight: 600,
-          color: "#F6C244",
-          fontSize: { xs: 24, md: 32 },
+          color: {xs:"white",md:"#F6C244",},
+          fontSize: { xs: 35, md: 32 },
           mb: 1,
         }}
       >
@@ -83,10 +82,11 @@ const LifeAtPkpnc = () => {
       {/* Subheading */}
       <Typography
         sx={{
-          fontFamily: "Montserrat, sans-serif",
+          fontFamily: "SF Pro",
           fontWeight: 400,
-          color: "#ddd",
-          fontSize: { xs: 13, md: 16 },
+          // color: "#ddd",
+          color: {xs:"#F6C244",md:"white",},
+          fontSize: { xs: 20, md: 16 },
           mb: 2,
         }}
       >
@@ -104,7 +104,7 @@ const LifeAtPkpnc = () => {
             borderRadius: "10px",
             overflow: "hidden",
             height: 150,
-
+         
           }}
         >
           {/* Image itself */}
@@ -113,7 +113,7 @@ const LifeAtPkpnc = () => {
             src={item.img}
             alt={item.title}
             sx={{
-              width: "250px",
+              width: "300px",
               height: "150px",
               objectFit: "cover",
               display: "block",
@@ -131,6 +131,7 @@ const LifeAtPkpnc = () => {
               background:
                 "linear-gradient(to top, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.2))",
               zIndex: 1,
+
             }}
           />
 
@@ -138,18 +139,18 @@ const LifeAtPkpnc = () => {
           <Box
             sx={{
               position: "absolute",
-              bottom: 20,
+              bottom: 40,
               left: 20,
               right: 20,
               zIndex: 2,
-              textAlign: "left",
+              textAlign: "center",
             }}
           >
             <Typography
               sx={{
-                fontFamily: "Montserrat, sans-serif",
+                fontFamily: "Astoria Classic Sans",
                 fontWeight: 600,
-                fontSize: { xs: 15, md: 17 },
+                fontSize: { xs: 15, md: 20 },
                 color: "#fff",
               }}
             >
@@ -157,7 +158,7 @@ const LifeAtPkpnc = () => {
             </Typography>
             <Typography
               sx={{
-                fontFamily: "Montserrat, sans-serif",
+                fontFamily: "SF pro",
                 fontWeight: 400,
                 fontSize: { xs: 13, md: 14 },
                 color: "#eee",
@@ -204,7 +205,7 @@ const LifeAtPkpnc = () => {
                   position: "relative",
                   borderRadius: "10px",
                   overflow: "hidden",
-                  height: 120,
+                  height: 200,
                   backgroundImage: `url(${item.img})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
@@ -232,20 +233,24 @@ const LifeAtPkpnc = () => {
                 >
                   <Typography
                     sx={{
-                      fontFamily: "Montserrat, sans-serif",
+                      fontFamily: "Astoria Classic Sans",
                       fontWeight: 600,
-                      fontSize: 15,
+                      fontSize: 25,
                       color: "#fff",
+                      textAlign: "center",
+                      mb:1
                     }}
                   >
                     {item.title}
                   </Typography>
                   <Typography
                     sx={{
-                      fontFamily: "Montserrat, sans-serif",
+                      fontFamily: "SF Pro",
                       fontWeight: 400,
-                      fontSize: 13,
+                      fontSize: 17,
                       color: "#eee",
+                      textAlign: "center",
+                       mb:5
                     }}
                   >
                     {item.desc}
@@ -267,7 +272,7 @@ const LifeAtPkpnc = () => {
           fontFamily: "Montserrat, sans-serif",
           fontWeight: 400,
           color: "#F6C244",
-          fontSize: { xs: 13, md: 15 },
+          fontSize: { xs: 15, md: 15 },
           mt: 2,
         }}
       >

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, useMediaQuery  } from "@mui/material";
 import clock from "../../assets/Icons/clock.svg";
 import people from "../../assets/Icons/people.svg";
 import heart from "../../assets/Icons/heart.svg";
@@ -25,13 +25,16 @@ const communityInfo = [
 ];
 
 const HappyCommunities = () => {
+
+
+
   return (
-    <Box sx={{ width: "90%", textAlign: "center", padding: "12px", mt:{md:1} }}>
+    <Box sx={{ width: "100%", textAlign: "center", padding: "12px", mt:{xs:2,md:1} }}>
       {/* Title and Subtitle */}
       <Typography
         sx={{
           color: "#4D5866",
-          fontSize: { xs: 20.2, md: 35 },
+          fontSize: { xs: 28, md: 35 },
           fontFamily: "Astoria Classic Sans",
           wordWrap: "break-word",
           fontWeight: "600",
@@ -43,7 +46,7 @@ const HappyCommunities = () => {
       <Typography
         sx={{
           color: "#DA8F08",
-          fontSize: { xs: 15, md: 24 },
+          fontSize: { xs: 18, md: 24 },
           fontFamily: "Montserrat",
           fontWeight: "600",
           wordWrap: "break-word",
@@ -57,7 +60,7 @@ const HappyCommunities = () => {
       <Typography
         sx={{
           color: "black",
-          fontSize: 11.2,
+          fontSize: 15,
           fontFamily: "Montserrat",
           fontWeight: "550",
           wordWrap: "break-word",
@@ -69,11 +72,12 @@ const HappyCommunities = () => {
       </Typography>
 
       {/* Cards Container */}
+      <Box sx={{width:{md:'70%'},margin:{md:'auto'}}}>
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" },
-          gap: { xs: 2, md: 3 },
+          gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 2fr)" },
+          gap: { xs: 2, md: 0 },
           justifyItems: "center",
           mt: { xs: 4, md: 6 },
         }}
@@ -85,7 +89,7 @@ const HappyCommunities = () => {
               bgcolor: "#fff",
               color: "#000",
               borderRadius: 7,
-              p: 2,
+              p: {xs:3.6},
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -96,10 +100,10 @@ const HappyCommunities = () => {
                 xs: "2px 4px 4px 1px rgba(0, 0, 0, 0.25)",
                 sm: "4px 4px 4px #CEB780",
               },
-              width: "100%",
+              width: {xs:"100",md:"80%"},
             }}
           >
-            {/* Circular Icon */}
+        
             <Box
               sx={{
                 backgroundColor: "#A26800",
@@ -136,8 +140,8 @@ const HappyCommunities = () => {
             <Typography
               sx={{
                 fontWeight: 600,
-                fontFamily: "Montserrat, sans-serif",
-                fontSize: { xs: 10, md: 16 },
+                fontFamily: "SF Pro",
+                fontSize: { xs: 14, md: 16 },
                 color: "#1B152B",
               }}
             >
@@ -146,26 +150,9 @@ const HappyCommunities = () => {
           </Box>
         ))}
       </Box>
+      </Box>
 
-      {/* Button */}
-      {/* <Button
-        variant="contained"
-        sx={{
-          bgcolor: "#D4A04A",
-          color: "#fff",
-          fontWeight: 600,
-          px: 3,
-          py: 1,
-          borderRadius: "8px",
-          textTransform: "none",
-          mt: 4,
-          "&:hover": {
-            bgcolor: "#B9832F",
-          },
-        }}
-      >
-        Learn More
-      </Button> */}
+      
     </Box>
   );
 };

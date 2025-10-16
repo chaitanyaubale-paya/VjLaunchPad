@@ -1,16 +1,23 @@
-import React from "react";
-import { Box, Typography, Button,useMediaQuery } from "@mui/material";
+import {useState} from "react";
+import { Box, Typography, Button,useMediaQuery,Modal } from "@mui/material";
 import KothrudSection from "./KothrudSection";
 import HappyCommunities from "./CommunityInfo";
 import DisclaimerComponent from "./Disclaimer";
-import Form from '../CustomerForm';
-import KothrudBanner from "../../assets/images/pnpkc/KothrudMainBanner.jpg";
+import  Form, {RightSideForm}  from '../CustomerForm';
+import KothrudBanner from "../../assets/images/pnpkc/KothrudMainBanner.png";
+import KothrudMobileBanner from "../../assets/images/pnpkc/KothrudMobileBanner.png";
 import AaplaKothrudFlex from "../../assets/images/pnpkc/AaplaKothrudFlex.jpg";
 import { useTheme } from "@mui/material/styles";
 import WhyChoosePratikNagar from "./ChoosePkpnc";
 import LifeAtPkpnc from "./LifeAtPkpnc";
-const PnPkc = () => {
+import Logo from '../../assets/images/vjLogo.png'
+import FooterSection from "./Footer";
 
+
+const PnPkc = () => {
+const [open, setOpen] = useState(false);
+const handleOpen = () => setOpen(true);
+const handleClose = () => setOpen(false);
    const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -29,7 +36,7 @@ const PnPkc = () => {
     >
      <Box sx={{ position: "relative", width: "100%", mb: isMobile ? 2 : 0 }}>
       {/* 🔹 Banner Image */}
-      <Box
+      {/* <Box
         component="img"
         src={KothrudBanner}
         alt="Top Banner"
@@ -39,7 +46,72 @@ const PnPkc = () => {
           borderRadius: "8px",
           objectFit: "cover",
         }}
-      />
+      /> */}
+
+      <Box
+  sx={{
+    position: "relative", // parent container for positioning
+    width: "100%",
+    height: isMobile ? "45vh" : "110vh",
+    borderRadius: "8px",
+    overflow: "hidden", // ensures logo doesn't spill outside
+  }}
+>
+  {/* Main Banner Image */}
+  {isMobile ? (  <Box
+    component="img"
+    src={KothrudBanner}
+    alt="Top Banner"
+    sx={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      borderRadius: "8px",
+    }}
+  />):(
+     <Box
+    component="img"
+    src={KothrudBanner}
+    alt="Top Banner"
+    sx={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      borderRadius: "8px",
+    }}
+  />
+  )}
+
+
+
+  {/* Small Logo Image */}
+  {isMobile ? (
+    <Box
+    component="img"
+    src={Logo}
+    alt="Logo"
+    sx={{
+      position: "absolute",
+      top: { xs: -13, md: -20 },   // adjust position
+      left: { xs: 0, md: 40 },
+      width: { xs: 80, md: 200 }, // adjust size for mobile/desktop
+      height: "auto",
+    }}
+  />
+  ) : ( <Box
+    component="img"
+    src={Logo}
+    alt="Logo"
+    sx={{
+      position: "absolute",
+      top: { xs: 10, md: -20 },   // adjust position
+      left: { xs: 10, md: 40 },
+      width: { xs: 60, md: 200 }, // adjust size for mobile/desktop
+      height: "auto",
+    }}
+  />)}
+ 
+</Box>
 
       {/* 🖥️ Desktop Overlay Content */}
       {!isMobile && (
@@ -96,8 +168,7 @@ const PnPkc = () => {
                 px: 3,
                 py: 1.2,
                 "&:hover": { background: "#3E4753" },
-                    width:'250px',
-         
+                width:'250px',
               }}
             >
               Sample Residence Film
@@ -116,9 +187,10 @@ const PnPkc = () => {
                 py: 2,
                 "&:hover": { background: "#2A1011" },
                       width:'250px',
+                      
             
               }}
-           
+             onClick={handleOpen}
             >
               Enquire Now
             </Button>
@@ -148,7 +220,7 @@ const PnPkc = () => {
               borderRadius: "8px",
               textTransform: "none",
               "&:hover": { background: "#3E4753" },
-          
+              height:{xs:'50px',md:'50px'}          
             }}
           >
             Sample Residence Film
@@ -165,6 +237,7 @@ const PnPkc = () => {
               textTransform: "none",
               "&:hover": { background: "#2A1011" },
             }}
+            onClick={handleOpen}
           >
             Enquire Now
           </Button>
@@ -210,7 +283,7 @@ const PnPkc = () => {
               justifyContent: "center",
               alignItems: "center",
               width: "30%",
-               borderRight: index !== array.length - 1 ? "3px solid #000000" : "none",
+               borderRight: index !== array.length - 1 ? "1.5px solid #000000" : "none",
             }}
           >
             <Typography
@@ -246,7 +319,7 @@ const PnPkc = () => {
           width: "100%",
           background: "rgba(54, 22, 23, 0.09)",
           borderRadius: "13px",
-          p: 1.5,
+          p: 1,
           display: "flex",
           justifyContent: "space-between",
           gap: 1.5,
@@ -276,7 +349,7 @@ const PnPkc = () => {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              width: "30%",
+              width: "50%",
             }}
           >
             <Typography
@@ -293,7 +366,7 @@ const PnPkc = () => {
             <Typography
               sx={{
                 color: "#000",
-                fontSize: {xs:10,md:18},
+                fontSize: {xs:12,md:18},
                 fontFamily: "SF Pro",
                 fontWeight: 700,
                 textAlign: "center",
@@ -314,7 +387,7 @@ const PnPkc = () => {
         display: { xs: "block", md: "flex" },
         alignItems: "center",
         justifyContent: "center",
-        width:{xs:"100%",md:"96%"},
+        width:{xs:"100%",md:"100%"},
         padding:{xs:2,md:0}
       }}
     >
@@ -323,29 +396,28 @@ const PnPkc = () => {
       sx={{
         display: isMobile ? "block" : "flex",
         alignItems: "center",
-        justifyContent: "space-between",
+        justifyContent: "center",
         width: "100%",
-        gap: isMobile ? 0 : 4,
+        gap: isMobile ? 0 : 2,
         mt: 2,
-        padding:0
+        padding:0,
       }}
     >
       {/* LEFT CONTENT */}
-      <Box sx={{ flex: 1, textAlign: isMobile ? "center" : "left" }}>
+      <Box sx={{ flex: 1, textAlign: isMobile ? "center" : "left",width:"100%"}}>
         <Typography
           sx={{
             fontFamily: "Astoria Classic Sans",
             fontWeight: 600,
             fontSize: isMobile ? 16 : 35,
-            
           }}
         >
           <Box sx={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-          <Box sx={{ color: "#D17700",textAlign: "center" , fontFamily:"Astoria Classic Sans"}}>
+          <Box sx={{ color: "#D17700",textAlign: "center" , fontFamily:"Astoria Classic Sans", fontSize:{xs:25,md:35}}}>
             आपलं कोथरूड,
           </Box>
-          <Box  sx={{ color: "#000000" , fontFamily:"Astoria Classic Sans"}}>
-            आपलं प्रतीक नगर
+          <Box  sx={{ color: "#000000" , fontFamily:"Astoria Classic Sans",fontSize:{xs:25,md:35}}}>
+            आपलं प्रतिक नगर
           </Box>
           </Box>
         </Typography>
@@ -353,18 +425,22 @@ const PnPkc = () => {
         <Typography
           sx={{
             fontFamily: "Astoria Classic Sans",
-            fontSize: isMobile ? 12 : 23,
+            fontSize: isMobile ? 17 : 23,
             mt: 1,
             color: "#000000",
             fontWeight: 550,
-            textAlign:"center"
+            textAlign:"center",
+            margin:"0 auto",
+            maxWidth:{xs:"100%",md:"90%"},
+            letterSpacing:0.2
+
           }}
         >
           Kothrud’s most loved Community meets Pune’s most loved Developer!
         </Typography>
 
         {/* 🔹 Feature Boxes */}
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             alignItems: "center",
@@ -385,22 +461,62 @@ const PnPkc = () => {
             <Box
               key={index}
               sx={{
-                flexBasis: "48%",
+                // flexBasis: "48%",
+                flexBasis: { xs: "47%", md: "48%" },
                 border: "2px solid #B89864",
                 borderRadius: "6px",
-                p: {xs:1,md:2},
-                fontSize: isMobile ? 10 : 15,
+                p: {xs:2,md:2},
+                fontSize: isMobile ? 12 : 15,
                 fontFamily: "Astoria Classic Sans",
                 fontWeight: 600,
                 color: "#000000",
                 textAlign: "center",
-                boxSizing: "border-box",
+                
               }}
             >
               {text}
             </Box>
           ))}
-        </Box>
+        </Box> */}
+<Box
+  sx={{
+    display: "grid",
+    gridTemplateColumns: { xs: "1fr 1fr", md: "1fr 1fr" },
+    gap: 1.5,
+    mt: 2,
+    maxWidth: { xs: "100%", md: 600 }, // ✅ increased width for both mobile & desktop
+    mx: "auto",
+  }}
+>
+  {[
+    "45 Years Legacy",
+    "Team of 1200 professionals",
+    "Possession Guarantee",
+    "Promising Track Record",
+  ].map((text, index) => (
+    <Box
+      key={index}
+      sx={{
+        border: "2px solid #B89864",
+        borderRadius: "6px",
+        fontSize: { xs: 13, md: 15 },
+        fontFamily: "Astoria Classic Sans",
+        fontWeight: 500,
+        color: "#000000",
+        textAlign: "center",
+        whiteSpace: "nowrap",
+        width: {xs:"180px",sm:'auto'},
+        padding: {xs:2,md:2}
+      }}
+    >
+      {text}
+    </Box>
+  ))}
+</Box>
+
+
+
+
       </Box>
 
       {/* RIGHT IMAGE — rendered only for desktop */}
@@ -410,6 +526,7 @@ const PnPkc = () => {
             display: "flex",
             justifyContent: "center",
             padding: {xs:0,md:0},
+            
           }}
         >
           <Box
@@ -418,7 +535,7 @@ const PnPkc = () => {
             alt="Aapla Kothrud Banner"
             sx={{
               width: "100%",
-              maxWidth: 600,
+              maxWidth: 800,
               borderRadius: "8px",
               objectFit: "cover",
             }}
@@ -433,7 +550,36 @@ const PnPkc = () => {
       <KothrudSection />
       <HappyCommunities />
       <Form/>
+       {!isMobile && <FooterSection/> }
       <DisclaimerComponent />
+      <Modal
+  open={open}
+  onClose={handleClose}
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    p: 2,
+    bgcolor: "rgba(0, 0, 0, 0.5)",  
+  }}
+>
+  <Box
+  className="custom-modal"
+    sx={{
+      bgcolor: "none",
+      borderRadius: "10px",
+      width: "100%",
+      overflowY: "none",
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center',
+      border:"0px"
+    }}
+  >
+    <RightSideForm />
+  </Box>
+</Modal>
+
     </Box>
   );
 };

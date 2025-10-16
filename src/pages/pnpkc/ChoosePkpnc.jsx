@@ -46,75 +46,181 @@ const WhyChoosePratikNagar = () => {
     return () => container.removeEventListener("scroll", handleScroll);
   }, [isMobile]);
 
-  const renderCard = (item, index, isLast) => (
+//   const renderCard = (item, index, isLast) => (
+//     <Box
+//       key={`${item.title}-${index}`}
+//       sx={{
+//         flex: isMobile ? "0 0 350px" : 1,
+//         display: "flex",
+//         flexDirection: "column",
+//         alignItems: "center",
+//         textAlign: "center",
+//         p: 3,
+//         borderRight: !isMobile && !isLast ? "2px solid rgba(255, 235, 168, 0.8)" : "none",
+//         // backgroundColor: isMobile ? "#fff" : "transparent",
+//         borderRadius: isMobile ? "10px" : "0",
+//         boxShadow: isMobile ? "0 2px 8px rgba(0,0,0,0.1)" : "none",
+//         mx: isMobile ? 1 : 0,
+//         scrollSnapAlign: isMobile ? "center" : "none",
+//          backgroundColor:  isMobile ? "#F9F8F5" : "white",
+//          margin:'auto'
+         
+//       }}
+//     >
+//      <Box
+//   sx={{
+//     width: 70,
+//     height: 70,
+//     borderRadius: "50%",
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+//     mb: 2,
+//     overflow: "hidden", // important to clip image inside the circle
+//   }}
+// >
+//   <Box
+//     component="img"
+//     src={item.icon} // 👈 your image path (e.g. "/images/amenity1.png")
+//     alt={item.title}
+//     sx={{
+//       width: "50%",
+//       height: "50%",
+//       objectFit: "cover", // ensures it fills the circle nicely
+//     }}
+//   />
+// </Box>
+
+//       <Typography
+//         sx={{
+//           fontFamily:"Astoria Classic Sans",
+//           fontWeight: 600,
+//           color: "#1B152B",
+//           fontSize: { xs: 15, md: 25 },
+//           mb: 0.5,
+     
+//         }}
+//       >
+//         {item.title}
+//       </Typography>
+
+//       <Typography
+//         sx={{
+//           fontFamily: "SF Pro",
+//           fontWeight: 400,
+//           fontSize: { xs: 13, md: 16 },
+//           color: "#555",
+//           maxWidth: 260,
+//         }}
+//       >
+//         {item.desc}
+//       </Typography>
+//     </Box>
+//   );
+const renderCard = (item, index, isLast) => (
+  <Box
+    key={`${item.title}-${index}`}
+    sx={{
+      flex: isMobile ? "0 0 280px" : 1,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      textAlign: "center",
+      p: 3,
+      borderRight: !isMobile && !isLast ? "2px solid rgba(255, 235, 168, 0.8)" : "none",
+      borderRadius: isMobile ? "10px" : "0",
+      // boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+      mx: isMobile ? 1 : 0,
+      scrollSnapAlign: isMobile ? "center" : "none",
+      backgroundColor: isMobile ? "#F9F8F5" : "white",
+      position: "relative",
+      overflow: "hidden",
+     
+    }}
+  >
+    {/* 🌈 Circular gradient background */}
     <Box
-      key={`${item.title}-${index}`}
       sx={{
-        flex: isMobile ? "0 0 280px" : 1,
+        position: "absolute",
+        top: "20px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: 150,
+        height: 150,
+        borderRadius: "50%",
+        // background: "linear-gradient(180deg, #e7d59bff 0%, #ffe5b4ff 100%)",
+        background: "linear-gradient(180deg, rgba(255,235,168,0.25) 0%, rgba(249,160,0,0.45) 85%)"
+,
+
+        opacity: 0.2,
+        zIndex: 0,
+        // outline: '3px #ddceb3ff ',
+        outlineOffset: '-1.50px'
+      }}
+    />
+
+    {/* Main content (placed above the gradient) */}
+    <Box
+      sx={{
+        position: "relative",
+        zIndex: 1,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        textAlign: "center",
-        p: 3,
-        borderRight: !isMobile && !isLast ? "2px solid rgba(255, 235, 168, 0.8)" : "none",
-        // backgroundColor: isMobile ? "#fff" : "transparent",
-        borderRadius: isMobile ? "10px" : "0",
-        boxShadow: isMobile ? "0 2px 8px rgba(0,0,0,0.1)" : "none",
-        mx: isMobile ? 1 : 0,
-        scrollSnapAlign: isMobile ? "center" : "none",
-         backgroundColor:  isMobile ? "#F9F8F5" : "white",
+        justifyContent: "center",
+        gap: 1.5,
       }}
     >
-     <Box
-  sx={{
-    width: 70,
-    height: 70,
-    borderRadius: "50%",
-   
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    mb: 2,
-    overflow: "hidden", // important to clip image inside the circle
-  }}
->
-  <Box
-    component="img"
-    src={item.icon} // 👈 your image path (e.g. "/images/amenity1.png")
-    alt={item.title}
-    sx={{
-      width: "50%",
-      height: "50%",
-      objectFit: "cover", // ensures it fills the circle nicely
-    }}
-  />
-</Box>
+      {/* Icon or circular outline */}
+      <Box
+        sx={{
+          width: 60,
+          height: 60,
+          borderRadius: "50%",
+          outline: "3px solid #F9A000",
+          outlineOffset: "-1.5px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          mb: 1,
+        }}
+      >
+        <img
+          src={item.icon}
+          alt={item.title}
+          style={{ width: "32px", height: "32px" }}
+        />
+      </Box>
 
+      {/* Title */}
       <Typography
         sx={{
-          fontFamily: "Montserrat, sans-serif",
-          fontWeight: 600,
           color: "#1B152B",
-          fontSize: { xs: 15, md: 17 },
-          mb: 0.5,
+          fontSize: { xs: 14, md: 18 },
+          fontFamily: "Astoria Classic Sans",
+          fontWeight: 500,
         }}
       >
         {item.title}
       </Typography>
 
+      {/* Description */}
       <Typography
         sx={{
-          fontFamily: "Montserrat, sans-serif",
+          textAlign: "center",
+          color: "#393E77",
+          fontSize: { xs: 12, md: 14 },
+          fontFamily: "SF Pro",
           fontWeight: 400,
-          fontSize: { xs: 13, md: 14 },
-          color: "#555",
-          maxWidth: 260,
+          lineHeight: 1.4,
+          maxWidth: 220,
         }}
       >
-        {item.desc}
+        {item.description}
       </Typography>
     </Box>
-  );
+  </Box>
+);
 
   return (
     <Box
@@ -132,7 +238,7 @@ const WhyChoosePratikNagar = () => {
           fontFamily: "'Astoria Classic Sans', serif",
           fontWeight: 600,
           color: "#DA8F08",
-          fontSize: { xs: 22, md: 30 },
+          fontSize: { xs: 26, md: 30 },
           mb: 1,
         }}
       >
@@ -144,7 +250,7 @@ const WhyChoosePratikNagar = () => {
         sx={{
           fontFamily: "Montserrat, sans-serif",
           fontWeight: 500,
-          fontSize: { xs: 13, md: 16 },
+          fontSize: { xs: 18, md: 16 },
           color: "#000",
           mb: 4,
         }}
@@ -163,6 +269,7 @@ const WhyChoosePratikNagar = () => {
               gap: 3,
               flexWrap: "nowrap",
               outline: "2px solid #FFEBA8",
+              backgroundColor: "white",
               borderRadius: "10px",
               p: 2,
               mb: 3,
@@ -182,6 +289,7 @@ const WhyChoosePratikNagar = () => {
               gap: 3,
               flexWrap: "nowrap",
               outline: "2px solid #FFEBA8",
+              backgroundColor: "white",
               borderRadius: "10px",
               p: 2,
             }}

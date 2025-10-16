@@ -70,6 +70,8 @@ const KothrudSection = () => {
           alignItems: "center",
           gap: { xs: 2, md: 2 },
           mb: { xs: 3, md: 4 },
+          width: "90%",
+          mx: "auto",
         }}
       >
         {places.map((place, index) => (
@@ -124,8 +126,8 @@ const KothrudSection = () => {
             <Box>
               <Typography
                 sx={{
-                  fontWeight: 600,
-                  fontSize: { xs: 13, md: 14 },
+                  fontWeight: 'bold',
+                  fontSize: { xs: 15, md: 18 },
                   color: "#1B152B",
                   fontFamily:"SF Pro"
                 }}
@@ -161,6 +163,7 @@ const KothrudSection = () => {
           "&:hover": {
             bgcolor: "#B9832F",
           },
+          fontFamily:"SF Pro"
         }}
       >
         View on google maps
