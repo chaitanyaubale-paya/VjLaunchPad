@@ -4,12 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import './pages/pnpkc/PnPkc'
 import PnPkc from './pages/pnpkc/PnPkc'
+import IndiWorksLanding from './pages/indiworks/IndiWorks'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-     <PnPkc />
+     {/* <PnPkc /> */}
+     <IndiWorksLanding/>
     </>
   )
 }

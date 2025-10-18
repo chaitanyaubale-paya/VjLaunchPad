@@ -229,7 +229,8 @@ const renderCard = (item, index, isLast) => (
         py: 6,
         px: { xs: 2, md: 10 },
         textAlign: "center",
-        width:'95vw'
+        // width:'95vw'
+        width:''
       }}
     >
       {/* Section Heading */}
