@@ -7,7 +7,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
-const RightSideForm = () => {
+const RightSideForm  = ({ sx = {} }) =>{
   return (
     <Box
       sx={{
@@ -16,7 +16,8 @@ const RightSideForm = () => {
         gap: 2,
         background: "white",
         width: { xs: "100%", md: "30%" },
-        p: 4,
+        padding:{xs:3,md:3},
+        ...sx,
         borderRadius: 2,
       }}
     >
@@ -111,9 +112,9 @@ const RightSideForm = () => {
       <Typography
         sx={{
           mt: 1,
-          fontSize: 12,
-          fontWeight: 500,
-          color: "black",
+          fontSize: 15,
+          fontWeight: 600,
+          color: "#5E5E5E",
           textAlign: "center",
           fontFamily: "SF Pro",
         }}
@@ -124,6 +125,10 @@ const RightSideForm = () => {
     </Box>
   );
 };
+
+
+
+
 
 const Form = () => {
   return (
@@ -145,15 +150,23 @@ const Form = () => {
       <Box
         sx={{
           textAlign: { xs: "center", md: "center" },
-          width: { xs: "100%", md: "40%" },
+          width: { xs: "100%", md: "27%" },
         }}
       >
+        <Box
+        sx={{
+          display:{xs:"flex",md:"block"},
+          justifyContent:"center",
+          alignItems:"center",
+          gap:1
+        }}
+        >
         <Typography
           sx={{
             fontFamily: "Yeseva One, serif",
             color: "#000",
-            fontSize: { xs: 30, md: 30 },
-            fontWeight: 600,
+            fontSize: { xs: 21, md: 30 },
+            fontWeight: 500,
           }}
         >
           Be a Part of the{" "}
@@ -163,19 +176,22 @@ const Form = () => {
           sx={{
             fontFamily: "Yeseva One, serif",
             color: "#DA8F08",
-            fontSize: { xs: 30, md: 30 },
-            fontWeight: 600,
+            fontSize: { xs: 21, md: 30 },
+            fontWeight: 500,
           }}
         >
           VJ Parivaar
         </Typography>
-
+</Box>
         <Typography
           sx={{
             mt: 1,
             fontFamily: "SF Pro",
             color: "#555",
-            fontSize: { xs: 15, md: 15 },
+            fontSize: { xs: 16, md: 15 },
+            fontWeight: 600,
+            letterSpacing: 0.2,
+            padding:{xs:1,sm:0}
           }}
         >
           Fill in your details to receive floor plans, price details, and
@@ -188,11 +204,11 @@ const Form = () => {
             mt: 4,
             display: "flex",
             justifyContent: { xs: "center", md: "center" },
-            gap: { xs: 2, md: 8 },
+            gap: { xs: 5, md: 10 },
           }}
         >
           {/* Call Box */}
-          <Box
+          {/* <Box
             sx={{
               display: "flex",
               flexDirection: "row",
@@ -204,21 +220,21 @@ const Form = () => {
               sx={{
                 backgroundColor: "white",
                 borderRadius: "50%",
-                width: 60,
-                height: 60,
+                width: {xs:40,md:60},
+                height: {xs:40,md:60},
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 mb: 1,
               }}
             >
-              <PhoneOutlinedIcon sx={{ color: "#A26800", fontSize: 28 }} />
+              <PhoneOutlinedIcon sx={{ color: "#A26800", fontSize: 20 }} />
             </Box>
             <Box>
               <Typography
                 sx={{
                   fontWeight: 600,
-                  fontSize: 14,
+                  fontSize: {xs:14,sm:15},
                   color: "black",
                   textAlign: "left",
                   fontFamily: "SF Pro",
@@ -228,12 +244,12 @@ const Form = () => {
               </Typography>
 
               <Typography
-                sx={{ fontSize: 13, color: "black", fontFamily: "SF Pro" }}
+                sx={{  fontSize: {xs:13,sm:15}, color: "black", fontFamily: "SF Pro" }}
               >
                 +91 XXX XXX XXXX
               </Typography>
             </Box>
-          </Box>
+          </Box> */}
 
           {/* Email Box */}
           <Box
@@ -241,15 +257,15 @@ const Form = () => {
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              gap: 1,
+              gap: 2,
             }}
           >
             <Box
               sx={{
                 backgroundColor: "white",
                 borderRadius: "50%",
-                width: 60,
-                height: 60,
+                width: {xs:40,md:60},
+                height: {xs:40,md:60},
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -262,7 +278,7 @@ const Form = () => {
               <Typography
                 sx={{
                   fontWeight: 600,
-                  fontSize: 14,
+                  fontSize: {xs:14,sm:15},
                   color: "black",
                   textAlign: "left",
                   fontFamily: "SF Pro",
@@ -271,7 +287,7 @@ const Form = () => {
                 Email Us
               </Typography>
               <Typography
-                sx={{ fontSize: 15, fontFamily: "SF Pro", color: "black" }}
+                sx={{  fontSize: {xs:15,sm:20}, fontFamily: "SF Pro", color: "black" }}
               >
                 info@pnpkc.com
               </Typography>

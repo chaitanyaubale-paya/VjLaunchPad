@@ -1,6 +1,8 @@
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button,Modal, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import FooterBg from "../../assets/images/pnpkc/footerDesktop.jpg"; 
 import { useState } from "react";
+import { RightSideForm } from "../CustomerForm";
 const FooterSection = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -108,7 +110,59 @@ const FooterSection = () => {
         </Button>
         
       </Box>
-      
+ <Modal
+  open={open}
+  onClose={handleClose}
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    p: 1,
+    bgcolor: "rgba(0, 0, 0, 0.5)",
+    backdropFilter: "blur(5px)",
+  }}
+>
+  <Box
+    className="custom-modal"
+    sx={{
+      position: "relative",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      border: 0,
+      width: "100%",
+      bgcolor: "transparent",
+    }}
+  >
+    {/* The white form box */}
+    <Box
+      sx={{
+        position: "relative",
+        background: "white",
+        borderRadius: 2,
+        width: { xs: "100%", md: "30%" },
+        p: 4,
+      }}
+    >
+      {/* Close (X) Button */}
+      <IconButton
+        onClick={handleClose}
+        sx={{
+          position: "absolute",
+          top: 8,
+          right: 8,
+          color: "#1B152B",
+          "&:hover": { bgcolor: "#E0E0E0" },
+        }}
+      >
+        <CloseIcon />
+      </IconButton>
+
+      {/* Your existing form content */}
+      <RightSideForm sx={{ width: "100%" }} />
+    </Box>
+  </Box>
+</Modal>
     </Box>
   );
 };

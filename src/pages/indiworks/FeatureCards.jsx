@@ -32,7 +32,7 @@ const FeatureCards = () => {
         height: { xs: "100%", sm: "100%", md: "100%" },
         backgroundColor: "#fff",
         borderRadius: "16px",
-        outline: "2px solid #B63B7C",
+        // outline: "2px solid #B63B7C",
         outline: isMobile ? "none" : "2px solid #B63B7C",
         outlineOffset: "-1px",
         px: { xs: 2, sm: 4, md: 2 },
@@ -74,7 +74,7 @@ const FeatureCards = () => {
               width: 155,
               height: 155,
               background:!isMobile &&
-                "radial-gradient(ellipse 381.34% 181.09% at 50.11% 50.08%, #FEF4C1 0%, rgba(255,255,255,0) 100%), radial-gradient(ellipse 55.75% 56.95% at 50% 50%, rgba(146,254,157,0.55) 0%, rgba(146,254,157,0) 100%)",
+                "radial-gradient(ellipse 381.34% 181.09% at 50.11% 50.08%, #fff7d4ff 0%, rgba(255,255,255,0) 100%), radial-gradient(ellipse 55.75% 56.95% at 50% 50%, rgba(146,254,157,0.55) 0%, rgba(146,254,157,0) 100%)",
               borderRadius: "50%",
               filter: "blur(28px)",
               zIndex: 0,

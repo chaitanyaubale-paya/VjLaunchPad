@@ -60,7 +60,7 @@ const AboutSection = () => {
       {/* Description */}
       <Box
         sx={{
-          width: { xs: '100%', sm: '90%', md: '75%' },
+          width: { xs: '100%', sm: '90%', md: '100%' },
           mt: { xs: 3, md: 3 },
           textAlign: 'center',
           px: { xs: 0, md: 4 },

@@ -12,7 +12,7 @@ const communityInfo = [
   },
   {
     icon: clock,
-    title: "On-Time Possession. Every time.",
+    title: "On-Time Possession.  Every time.",
   },
   {
     icon: people,
@@ -37,12 +37,12 @@ const HappyCommunities = () => {
           fontSize: { xs: 28, md: 35 },
           fontFamily: "Astoria Classic Sans",
           wordWrap: "break-word",
-          fontWeight: "600",
+          fontWeight: "500",
         }}
       >
         Building Happy Communities Since 1981
       </Typography>
-
+      <Box sx={{width:{xs:"100%",md:"45%"},margin:{md:"auto"}}}>
       <Typography
         sx={{
           color: "#DA8F08",
@@ -56,7 +56,8 @@ const HappyCommunities = () => {
         45+ years of creating spaces built on trust, transparency, and
         People-First
       </Typography>
-
+</Box>
+  <Box sx={{width:{xs:"100%",md:"35%"},margin:{md:"auto"}}}>
       <Typography
         sx={{
           color: "black",
@@ -70,7 +71,7 @@ const HappyCommunities = () => {
         Vilas Javdekar Developers has been shaping Pune’s skyline and
         communities for over four decades.
       </Typography>
-
+</Box>
       {/* Cards Container */}
       <Box sx={{width:{md:'70%'},margin:{md:'auto'}}}>
       <Box
@@ -89,7 +90,7 @@ const HappyCommunities = () => {
               bgcolor: "#fff",
               color: "#000",
               borderRadius: 7,
-              p: {xs:3.6},
+              p: {xs:2,md:3},
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -100,7 +101,8 @@ const HappyCommunities = () => {
                 xs: "2px 4px 4px 1px rgba(0, 0, 0, 0.25)",
                 sm: "4px 4px 4px #CEB780",
               },
-              width: {xs:"100",md:"80%"},
+              width: {xs:"100",md:"90%"},
+              height: {xs:180,md:"100%"},
             }}
           >
         
@@ -108,8 +110,8 @@ const HappyCommunities = () => {
               sx={{
                 backgroundColor: "#A26800",
                 borderRadius: "50%",
-                width: 60,
-                height: 60,
+                width: {xs:50,md:60},
+                height: {xs:50,md:60},
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -124,7 +126,7 @@ const HappyCommunities = () => {
       item.icon === smile
         ? "40px"
         : item.icon === heart
-        ? "35px"
+        ? "40px"
         : "50px",
     height:
       item.icon === smile
@@ -141,7 +143,7 @@ const HappyCommunities = () => {
               sx={{
                 fontWeight: 600,
                 fontFamily: "SF Pro",
-                fontSize: { xs: 14, md: 16 },
+                fontSize: { xs: 11, md: 13 },
                 color: "#1B152B",
               }}
             >

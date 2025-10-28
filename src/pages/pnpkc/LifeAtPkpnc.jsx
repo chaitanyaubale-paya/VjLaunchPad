@@ -72,7 +72,7 @@ const LifeAtPkpnc = () => {
           fontFamily: "'Astoria Classic Sans', serif",
           fontWeight: 600,
           color: {xs:"white",md:"#F6C244",},
-          fontSize: { xs: 35, md: 32 },
+           fontSize: { xs: 28, md: 28 },
           mb: 1,
         }}
       >
@@ -224,7 +224,7 @@ const LifeAtPkpnc = () => {
                 <Box
                   sx={{
                     position: "absolute",
-                    bottom: 20,
+                    bottom: 0,
                     left: 20,
                     right: 20,
                     zIndex: 2,
@@ -235,7 +235,7 @@ const LifeAtPkpnc = () => {
                     sx={{
                       fontFamily: "Astoria Classic Sans",
                       fontWeight: 600,
-                      fontSize: 25,
+                      fontSize: 20,
                       color: "#fff",
                       textAlign: "center",
                       mb:1
@@ -247,7 +247,7 @@ const LifeAtPkpnc = () => {
                     sx={{
                       fontFamily: "SF Pro",
                       fontWeight: 400,
-                      fontSize: 17,
+                      fontSize: 14,
                       color: "#eee",
                       textAlign: "center",
                        mb:5

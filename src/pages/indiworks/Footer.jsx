@@ -9,6 +9,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
+        mt:4,
         width: "100%",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
@@ -16,7 +17,7 @@ export default function Footer() {
         alignItems: { xs: "center", md: "flex-start" },
         px: { xs: 4, md: 8 },
         py: { xs: 6, md: 4 },
-        bgcolor: "#fff",
+        bgcolor: "#2D324B",
         gap: { xs: 5, md: 0 },
       }}
     >
@@ -79,6 +80,7 @@ export default function Footer() {
           textAlign: { xs: "center", md: "left" },
           gap: { xs: 3, md: 3 },
           width: { xs: "100%", md: "50%" },
+          mt:{xs:0,md:5}
         }}
       >
         {/* 4️⃣ Landmark Tagline */}

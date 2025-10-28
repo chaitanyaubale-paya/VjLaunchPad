@@ -1,20 +1,43 @@
-
 import { useEffect, useRef } from "react";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import StarIcon from "../../assets/Icons/pkpncChoice/star.svg";
 import HomeIcon from "../../assets/Icons/pkpncChoice/home.svg";
 import EmojiEventsIcon from "../../assets/Icons/pkpncChoice/plant.svg";
-import FavoriteIcon from "../../assets/Icons/pkpncChoice/star.svg";
+import shieldIcon from "../../assets/Icons/pkpncChoice/shield.svg";
 import PeopleIcon from "../../assets/Icons/pkpncChoice/people.svg";
 import VerifiedIcon from "../../assets/Icons/pkpncChoice/badge.svg";
 
 const reasons = [
-  { icon: StarIcon, title: "50+ Lifestyle Amenities", desc: "Spread over 3 levels, designed for all age groups" },
-  { icon: HomeIcon, title: "Spacious Homes", desc: "With a variety of sizes that suit each family" },
-  { icon: EmojiEventsIcon,title: "Best-in-class Spaces", desc: "That make homes highly functional" },
-  { icon: FavoriteIcon, title: "Homes with High IAQ", desc: "Design that enables ample natural light and ventilation" },
-  { icon: PeopleIcon, title: "Kothrud’s Best Community", desc: "Join a community of 250+ like-minded families" },
-  { icon: VerifiedIcon, title: "45+ Years VJ Legacy", desc: "Trusted developer with proven track record" },
+  {
+    icon: StarIcon,
+    title: "50+ Lifestyle Amenities",
+    desc: "Spread over 3 levels, designed for all age groups",
+  },
+  {
+    icon: HomeIcon,
+    title: "Spacious Homes",
+    desc: "With a variety of sizes that suit each family",
+  },
+  {
+    icon: VerifiedIcon,
+    title: "Best-in-class Spaces",
+    desc: "That make homes highly functional",
+  },
+  {
+    icon: EmojiEventsIcon,
+    title: "Homes with High IAQ",
+    desc: "Design that enables ample natural light and ventilation",
+  },
+  {
+    icon: PeopleIcon,
+    title: "Kothrud’s Best Community",
+    desc: "Join a community of 250+ like-minded families",
+  },
+  {
+    icon: shieldIcon,
+    title: "45+ Years VJ Legacy",
+    desc: "Trusted developer with proven track record",
+  },
 ];
 
 const WhyChoosePratikNagar = () => {
@@ -46,181 +69,80 @@ const WhyChoosePratikNagar = () => {
     return () => container.removeEventListener("scroll", handleScroll);
   }, [isMobile]);
 
-//   const renderCard = (item, index, isLast) => (
-//     <Box
-//       key={`${item.title}-${index}`}
-//       sx={{
-//         flex: isMobile ? "0 0 350px" : 1,
-//         display: "flex",
-//         flexDirection: "column",
-//         alignItems: "center",
-//         textAlign: "center",
-//         p: 3,
-//         borderRight: !isMobile && !isLast ? "2px solid rgba(255, 235, 168, 0.8)" : "none",
-//         // backgroundColor: isMobile ? "#fff" : "transparent",
-//         borderRadius: isMobile ? "10px" : "0",
-//         boxShadow: isMobile ? "0 2px 8px rgba(0,0,0,0.1)" : "none",
-//         mx: isMobile ? 1 : 0,
-//         scrollSnapAlign: isMobile ? "center" : "none",
-//          backgroundColor:  isMobile ? "#F9F8F5" : "white",
-//          margin:'auto'
-         
-//       }}
-//     >
-//      <Box
-//   sx={{
-//     width: 70,
-//     height: 70,
-//     borderRadius: "50%",
-//     display: "flex",
-//     justifyContent: "center",
-//     alignItems: "center",
-//     mb: 2,
-//     overflow: "hidden", // important to clip image inside the circle
-//   }}
-// >
-//   <Box
-//     component="img"
-//     src={item.icon} // 👈 your image path (e.g. "/images/amenity1.png")
-//     alt={item.title}
-//     sx={{
-//       width: "50%",
-//       height: "50%",
-//       objectFit: "cover", // ensures it fills the circle nicely
-//     }}
-//   />
-// </Box>
-
-//       <Typography
-//         sx={{
-//           fontFamily:"Astoria Classic Sans",
-//           fontWeight: 600,
-//           color: "#1B152B",
-//           fontSize: { xs: 15, md: 25 },
-//           mb: 0.5,
-     
-//         }}
-//       >
-//         {item.title}
-//       </Typography>
-
-//       <Typography
-//         sx={{
-//           fontFamily: "SF Pro",
-//           fontWeight: 400,
-//           fontSize: { xs: 13, md: 16 },
-//           color: "#555",
-//           maxWidth: 260,
-//         }}
-//       >
-//         {item.desc}
-//       </Typography>
-//     </Box>
-//   );
-const renderCard = (item, index, isLast) => (
-  <Box
-    key={`${item.title}-${index}`}
-    sx={{
-      flex: isMobile ? "0 0 280px" : 1,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      textAlign: "center",
-      p: 3,
-      borderRight: !isMobile && !isLast ? "2px solid rgba(255, 235, 168, 0.8)" : "none",
-      borderRadius: isMobile ? "10px" : "0",
-      // boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-      mx: isMobile ? 1 : 0,
-      scrollSnapAlign: isMobile ? "center" : "none",
-      backgroundColor: isMobile ? "#F9F8F5" : "white",
-      position: "relative",
-      overflow: "hidden",
-     
-    }}
-  >
-    {/* 🌈 Circular gradient background */}
+  const renderCard = (item, index, isLast) => (
     <Box
+      key={`${item.title}-${index}`}
       sx={{
-        position: "absolute",
-        top: "20px",
-        left: "50%",
-        transform: "translateX(-50%)",
-        width: 150,
-        height: 150,
-        borderRadius: "50%",
-        // background: "linear-gradient(180deg, #e7d59bff 0%, #ffe5b4ff 100%)",
-        background: "linear-gradient(180deg, rgba(255,235,168,0.25) 0%, rgba(249,160,0,0.45) 85%)"
-,
-
-        opacity: 0.2,
-        zIndex: 0,
-        // outline: '3px #ddceb3ff ',
-        outlineOffset: '-1.50px'
-      }}
-    />
-
-    {/* Main content (placed above the gradient) */}
-    <Box
-      sx={{
-        position: "relative",
-        zIndex: 1,
+        flex: isMobile ? "0 0 290px" : 1,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
-        gap: 1.5,
+        textAlign: "center",
+        p: 2,
+        // borderRight: !isMobile && !isLast ? "2px solid rgba(255, 235, 168, 0.8)" : "none",
+        border: isMobile ? "2px solid #F9A000" : "none",
+        [theme.breakpoints.up("md")]: {
+          borderRight: !isLast ? "2px solid rgba(255, 235, 168, 0.8)" : "none",
+        },
+        borderRadius: isMobile ? "10px" : "0",
+        boxShadow: isMobile ? "0 2px 8px rgba(0,0,0,0.1)" : "none",
+        mx: isMobile ? 1 : 0,
+        // border:isMobile ? '2px solid #F9A000':'none',
+        scrollSnapAlign: isMobile ? "center" : "none",
+        backgroundColor: isMobile ? "#F9F8F5" : "white",
+        margin: "auto",
+        height: isMobile ? 250 : "auto",
       }}
     >
-      {/* Icon or circular outline */}
       <Box
         sx={{
-          width: 60,
-          height: 60,
+          width: 70,
+          height: 70,
           borderRadius: "50%",
-          outline: "3px solid #F9A000",
-          outlineOffset: "-1.5px",
           display: "flex",
-          alignItems: "center",
           justifyContent: "center",
-          mb: 1,
+          alignItems: "center",
+          mb: 2,
+          overflow: "hidden", 
         }}
       >
-        <img
-          src={item.icon}
+        <Box
+          component="img"
+          src={item.icon} 
           alt={item.title}
-          style={{ width: "32px", height: "32px" }}
+          sx={{
+            width: { xs: "80%", md: "80%" },
+            height: { xs: "80%", md: "90%" },
+            objectFit: "contain", 
+          }}
         />
       </Box>
 
-      {/* Title */}
       <Typography
         sx={{
-          color: "#1B152B",
-          fontSize: { xs: 14, md: 18 },
           fontFamily: "Astoria Classic Sans",
           fontWeight: 500,
+          color: "#1B152B",
+          fontSize: { xs: 20, md: 25 },
         }}
       >
         {item.title}
       </Typography>
 
-      {/* Description */}
       <Typography
         sx={{
-          textAlign: "center",
-          color: "#393E77",
-          fontSize: { xs: 12, md: 14 },
           fontFamily: "SF Pro",
           fontWeight: 400,
-          lineHeight: 1.4,
-          maxWidth: 220,
+          fontSize: { xs: 18, md: 16 },
+          color: "#393E77",
+          maxWidth: 260,
+          mt: 3,
         }}
       >
-        {item.description}
+        {item.desc}
       </Typography>
     </Box>
-  </Box>
-);
+  );
 
   return (
     <Box
@@ -230,16 +152,16 @@ const renderCard = (item, index, isLast) => (
         px: { xs: 2, md: 10 },
         textAlign: "center",
         // width:'95vw'
-        width:''
+        width: "95vw",
       }}
     >
       {/* Section Heading */}
       <Typography
         sx={{
           fontFamily: "'Astoria Classic Sans', serif",
-          fontWeight: 600,
+          fontWeight: 500,
           color: "#DA8F08",
-          fontSize: { xs: 26, md: 30 },
+          fontSize: { xs: 28, md: 30 },
           mb: 1,
         }}
       >
@@ -256,10 +178,11 @@ const renderCard = (item, index, isLast) => (
           mb: 4,
         }}
       >
-        Here are Top 6 Reasons why Pratik Nagar is unlike any other redevelopment project
+        Here are Top 6 Reasons why Pratik Nagar is unlike any other
+        redevelopment project
       </Typography>
 
-       {!isMobile ? (
+      {!isMobile ? (
         <>
           {/* Top 3 */}
           <Box
@@ -272,13 +195,13 @@ const renderCard = (item, index, isLast) => (
               outline: "2px solid #FFEBA8",
               backgroundColor: "white",
               borderRadius: "10px",
-              p: 2,
+              p: 4,
               mb: 3,
             }}
           >
-            {reasons.slice(0, 3).map((item, index) =>
-              renderCard(item, index, index === 2)
-            )}
+            {reasons
+              .slice(0, 3)
+              .map((item, index) => renderCard(item, index, index === 2))}
           </Box>
 
           {/* Bottom 3 */}
@@ -292,15 +215,15 @@ const renderCard = (item, index, isLast) => (
               outline: "2px solid #FFEBA8",
               backgroundColor: "white",
               borderRadius: "10px",
-              p: 2,
+              p: 4,
             }}
           >
-            {reasons.slice(3, 6).map((item, index) =>
-              renderCard(item, index, index === 2)
-            )}
+            {reasons
+              .slice(3, 6)
+              .map((item, index) => renderCard(item, index, index === 2))}
           </Box>
         </>
-      ) :  (
+      ) : (
         // Mobile: infinite horizontal scroll
         <Box
           ref={scrollRef}
@@ -315,9 +238,10 @@ const renderCard = (item, index, isLast) => (
             "&::-webkit-scrollbar": { display: "none" },
           }}
         >
-          {[...reasons, ...reasons, ...reasons].map((item, index) =>
+          {/* {[...reasons, ...reasons, ...reasons].map((item, index) =>  //infinite scroll
             renderCard(item, index, false)
-          )}
+          )} */}
+           {reasons.map((item, index) => renderCard(item, index, false))}
         </Box>
       )}
     </Box>
@@ -325,30 +249,6 @@ const renderCard = (item, index, isLast) => (
 };
 
 export default WhyChoosePratikNagar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from "react";
 // import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";

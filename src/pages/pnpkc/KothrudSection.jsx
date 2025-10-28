@@ -11,6 +11,7 @@ import ClubSolaris from "../../assets/Icons/clubSolaris.svg";
 import IdealColony from "../../assets/Icons/idealColony.svg";
 import MIT from "../../assets/Icons/mit.svg";
 import Vanaz from "../../assets/Icons/vanazMetroStation.svg";
+import { href } from "react-router-dom";
 
 const places = [
   { icon: Vanaz, title: "Paud Fata Metro Station", distance: "1 km" },
@@ -38,8 +39,8 @@ const KothrudSection = () => {
       {/* Heading */}
       <Typography
         sx={{
-          fontWeight: 700,
-          fontSize: { xs: 23, md: 28 },
+          fontWeight: 500,
+          fontSize: { xs: 28, md: 28 },
           fontFamily: "Astoria Classic Sans",
         }}
       >
@@ -50,7 +51,7 @@ const KothrudSection = () => {
       <Typography
         sx={{
           color: "#FFA400",
-          fontSize: { xs: 14, md: 16 },
+          fontSize: { xs: 15, md: 16 },
           fontWeight: 500,
           mb: { xs: 3, md: 5 },
           fontFamily: "SF Pro",
@@ -126,8 +127,8 @@ const KothrudSection = () => {
             <Box>
               <Typography
                 sx={{
-                  fontWeight: 'bold',
-                  fontSize: { xs: 15, md: 18 },
+                  fontWeight: 600,
+                  fontSize: { xs: 17, md: 18 },
                   color: "#1B152B",
                   fontFamily:"SF Pro"
                 }}
@@ -136,7 +137,7 @@ const KothrudSection = () => {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: 12, md: 13 },
+                  fontSize: { xs: 15, md: 13 },
                   color: "#555",
                   mt: 0.2,
                   fontFamily:"SF Pro"
@@ -150,24 +151,29 @@ const KothrudSection = () => {
       </Box>
 
       {/* Button */}
-      <Button
-        variant="contained"
-        sx={{
-          bgcolor: "#D4A04A",
-          color: "#fff",
-          fontWeight: 600,
-          px: 3,
-          py: 1,
-          borderRadius: "2px",
-          textTransform: "none",
-          "&:hover": {
-            bgcolor: "#B9832F",
-          },
-          fontFamily:"SF Pro"
-        }}
-      >
-        View on google maps
-      </Button>
+    <a
+  href="https://www.google.com/maps/place/Pratik+Nagar,+Mohanwadi,+Yerawada,+Pune,+Maharashtra+411006/@18.5668697,73.8805658,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2c0d73736d7af:0x1eb100f07a6b924a!8m2!3d18.5657821!4d73.8832011!16s%2Fg%2F1ptwx_brn?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ textDecoration: "none" }}
+>
+  <Button
+    variant="contained"
+    sx={{
+      bgcolor: "#D4A04A",
+      color: "#fff",
+      fontWeight: 600,
+      px: 3,
+      py: 1,
+      borderRadius: "2px",
+      textTransform: "none",
+      "&:hover": { bgcolor: "#B38C48" },
+      fontFamily: "SF Pro",
+    }}
+  >
+    View on Google Maps
+  </Button>
+</a>
     </Box>
   );
 };

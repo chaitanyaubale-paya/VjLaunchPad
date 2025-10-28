@@ -9,7 +9,7 @@ const DisclaimerComponent = () => {
         height: '100%',
         background: 'black',
         position: 'relative',
-        padding: { xs: 3.5, md:3  }, // padding for mobile and desktop views
+        padding: { xs: 3, md:3  }, // padding for mobile and desktop views
       }}
     >
       {/* DISCLAIMER Div */}
@@ -39,7 +39,7 @@ const DisclaimerComponent = () => {
           display: 'flex',
           flexDirection: 'column',
           color: 'white',
-          fontSize: { xs: 18, sm: 12, md: 15 }, // responsive font size
+          fontSize: { xs: 15, sm: 15, md: 15 }, // responsive font size
           fontFamily: 'SF pro',
           fontWeight: '500',
           lineHeight: 1.5,
