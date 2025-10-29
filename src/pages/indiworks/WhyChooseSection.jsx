@@ -195,7 +195,7 @@ const WhyNRIsChooseIndiWorks = () => {
           justifyContent: "center",
           alignItems: "center",
           gap: { xs: 3, sm: 6 },
-          mt: { xs: 0, md: 10 },
+          mt: { xs: 0, md: 5 },
           textAlign: "center",
           mx: "auto",
         }}

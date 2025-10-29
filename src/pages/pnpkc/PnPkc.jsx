@@ -42,6 +42,7 @@ const PnPkc = () => {
         boxSizing: "border-box",
       }}
     >
+     
       <Box sx={{ position: "relative", width: "100%", mb: isMobile ? 2 : 0 }}>
         {/* 🔹 Banner Image */}
         {/* <Box
@@ -65,54 +66,7 @@ const PnPkc = () => {
             overflow: "hidden",
           }}
         >
-          <Box
-            sx={{
-              position: "fixed",
-              bottom: 20,
-              left: 30,
-              display: "flex",
-              flexDirection: "column",
-              gap: 2,
-              zIndex: 100,
-            }}
-          >
-            <IconButton
-              sx={{
-                backgroundColor: "#15133D",
-                color: "#fff",
-                width: 52,
-                height: 52,
-                "&:hover": { backgroundColor: "#0E0B2E" },
-              }}
-              onClick={() => (window.location.href = "tel:+919876543210")}
-            >
-              <PhoneIcon />
-            </IconButton>
-          </Box>
-
-          <Box
-            sx={{
-              position: "fixed",
-              bottom: 20,
-              right: 40,
-              zIndex: 100,
-            }}
-          >
-            <IconButton
-              sx={{
-                backgroundColor: "#25D366",
-                color: "#fff",
-                width: 52,
-                height: 52,
-                "&:hover": { backgroundColor: "#1EBE5A" },
-              }}
-              onClick={() =>
-                window.open("https://wa.me/919876543210", "_blank")
-              }
-            >
-              <WhatsAppIcon />
-            </IconButton>
-          </Box>
+         
           {/* Main Banner Image */}
           {isMobile ? (
             <Box
@@ -127,6 +81,7 @@ const PnPkc = () => {
                 display: "block",
               }}
             />
+            
           ) : (
             <Box
               component="img"
@@ -140,6 +95,7 @@ const PnPkc = () => {
               }}
             />
           )}
+         
 
           {/* Small Logo Image */}
           <Box
@@ -563,6 +519,7 @@ const PnPkc = () => {
             >
               Kothrud’s most loved Community meets Pune’s most loved Developer!
             </Typography>
+            
 
             {/* 🔹 Feature Boxes */}
 
@@ -601,6 +558,7 @@ const PnPkc = () => {
                 </Box>
               ))}
             </Box>
+             
           </Box>
 
           {/* RIGHT IMAGE — rendered only for desktop */}
@@ -710,6 +668,7 @@ const PnPkc = () => {
           </Box>
         </Box>
       </Modal>
+       
     </Box>
   );
 };

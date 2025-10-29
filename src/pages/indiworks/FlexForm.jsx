@@ -8,7 +8,7 @@ const FlexForm = () => {
         sx={{
           backgroundColor: "#0D0D18",
           color: "#fff",
-          p: {xs:1,md:10},
+          p: {xs:1,md:1},
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "center",

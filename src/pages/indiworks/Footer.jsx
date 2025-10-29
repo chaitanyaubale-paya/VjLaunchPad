@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        mt:4,
+        mt:{xs:0,sm:4},
         width: "100%",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },

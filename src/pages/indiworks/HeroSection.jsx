@@ -230,54 +230,7 @@ const HeroSection = () => {
       </Box>
 
       {/* -------- FLOATING CONTACT ICONS -------- */}
-      <Box
-        sx={{
-          position: "fixed",
-          bottom: 20,
-          left: 20,
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          zIndex: 100,
-        }}
-      >
-        <IconButton
-          sx={{
-            backgroundColor: "#15133D",
-            color: "#fff",
-            width: 52,
-            height: 52,
-            "&:hover": { backgroundColor: "#0E0B2E" },
-          }}
-          onClick={() => (window.location.href = "tel:+919876543210")}
-        >
-          <PhoneIcon />
-        </IconButton>
-      </Box>
-
-      <Box
-        sx={{
-          position: "fixed",
-          bottom: 20,
-          right: 20,
-          zIndex: 100,
-        }}
-      >
-        <IconButton
-          sx={{
-            backgroundColor: "#25D366",
-            color: "#fff",
-            width: 52,
-            height: 52,
-            "&:hover": { backgroundColor: "#1EBE5A" },
-          }}
-          onClick={() =>
-            window.open("https://wa.me/919876543210", "_blank")
-          }
-        >
-          <WhatsAppIcon />
-        </IconButton>
-      </Box>
+     
        <Modal
   open={open}
   onClose={handleClose}
