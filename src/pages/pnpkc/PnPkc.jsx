@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import {
   Box,
   Typography,
@@ -6,6 +6,7 @@ import {
   useMediaQuery,
   Modal,
   IconButton,
+  Skeleton,
 } from "@mui/material";
 import KothrudSection from "./KothrudSection";
 import HappyCommunities from "./CommunityInfo";
@@ -20,14 +21,22 @@ import LifeAtPkpnc from "./LifeAtPkpnc";
 import Logo from "../../assets/images/vjLogo.png";
 import FooterSection from "./Footer";
 import CloseIcon from "@mui/icons-material/Close";
-import PhoneIcon from "@mui/icons-material/Phone";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+
 const PnPkc = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [isLoading, setIsLoading] = useState(true);
+
+   useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 seconds skeleton duration
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Box
       sx={{
@@ -45,18 +54,7 @@ const PnPkc = () => {
      
       <Box sx={{ position: "relative", width: "100%", mb: isMobile ? 2 : 0 }}>
         {/* 🔹 Banner Image */}
-        {/* <Box
-        component="img"
-        src={KothrudBanner}
-        alt="Top Banner"
-        sx={{
-          width: "100%",
-          height: isMobile ? "45vh" : "95vh",
-          borderRadius: "8px",
-          objectFit: "cover",
-        }}
-      /> */}
-
+       
         <Box
           sx={{
             position: "relative", // parent container for positioning
@@ -66,9 +64,9 @@ const PnPkc = () => {
             overflow: "hidden",
           }}
         >
-         
+        
           {/* Main Banner Image */}
-          {isMobile ? (
+          {/* {isMobile ? (
             <Box
               component="img"
               src={KothrudMobileBanner}
@@ -94,7 +92,50 @@ const PnPkc = () => {
                 borderRadius: "8px",
               }}
             />
-          )}
+          )} */}
+          {isLoading ? (
+  // Show skeleton while loading
+  <Skeleton
+    variant="rectangular"
+    width="100%"
+    height={isMobile ? "64vh" : "110vh"}
+    sx={{ borderRadius: "8px" }}
+  />
+) : (
+  // Show actual image after timeout
+  <>
+    {isMobile ? (
+      <Box
+        component="img"
+        src={KothrudMobileBanner}
+        alt="Top Banner"
+        sx={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          borderRadius: "8px",
+          display: "block",
+          opacity: 1,
+          transition: "opacity 0.5s ease-in-out",
+        }}
+      />
+    ) : (
+      <Box
+        component="img"
+        src={KothrudBanner}
+        alt="Top Banner"
+        sx={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          borderRadius: "8px",
+          opacity: 1,
+          transition: "opacity 0.5s ease-in-out",
+        }}
+      />
+    )}
+  </>
+)}
          
 
           {/* Small Logo Image */}
@@ -469,6 +510,7 @@ const PnPkc = () => {
             }}
           >
             <Typography
+              component="div" 
               sx={{
                 fontFamily: "Astoria Classic Sans",
                 fontWeight: 600,
@@ -562,7 +604,8 @@ const PnPkc = () => {
           </Box>
 
           {/* RIGHT IMAGE — rendered only for desktop */}
-          {!isMobile && (
+          {/* {!isMobile && (
+            
             <Box
               sx={{
                 display: "flex",
@@ -583,7 +626,42 @@ const PnPkc = () => {
                 }}
               />
             </Box>
-          )}
+          )} */}
+          {!isMobile && (
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "center",
+      padding: { xs: 0, md: 0 },
+    }}
+  >
+    {isLoading ? (
+      <Skeleton
+        variant="rectangular"
+        width="800px"
+        height={450}
+        sx={{
+          maxWidth: "800px",
+          borderRadius: "8px",
+        }}
+      />
+    ) : (
+      <Box
+        component="img"
+        src={AaplaKothrudFlex}
+        alt="Aapla Kothrud Banner"
+        sx={{
+          width: "100%",
+          height: 450,
+          maxWidth: 800,
+          borderRadius: "8px",
+          objectFit: "cover",
+        }}
+      />
+    )}
+  </Box>
+)}
+
         </Box>
       </Box>
       <WhyChoosePratikNagar />

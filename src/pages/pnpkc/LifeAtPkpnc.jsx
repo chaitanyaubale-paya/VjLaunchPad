@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, Grid, useMediaQuery, useTheme, Skeleton } from "@mui/material";
 import SpiritualZone from '../../assets/images/pnpkc/aminities/spiritualZone.jpg'
 import KidsPlay from '../../assets/images/pnpkc/aminities/kidsPlay.jpg'
 import SwimmingPool from '../../assets/images/pnpkc/aminities/swimmingPool.jpg'
@@ -6,7 +6,8 @@ import PetPark from '../../assets/images/pnpkc/aminities/petsPark.jpg'
 import Wellness from '../../assets/images/pnpkc/aminities/wellnessZone.jpg'
 import Sports from '../../assets/images/pnpkc/aminities/sportsZone.jpg'
 import  Jogging from '../../assets/images/pnpkc/aminities/joggingPark.jpg'
-import ClubPalladio from '../../assets/images/pnpkc/aminities/clubPalladio.jpg'
+import ClubPalladio from '../../assets/images/pnpkc/aminities/clubPalladio.jpg';
+import { useState,useEffect } from "react";
 const amenities = [
   {
     title: "Swimming Pool",
@@ -53,6 +54,14 @@ const amenities = [
 const LifeAtPkpnc = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 seconds skeleton duration
+    return () => clearTimeout(timer);
+  })
+
 
   return (
     <Box
@@ -108,6 +117,24 @@ const LifeAtPkpnc = () => {
           }}
         >
           {/* Image itself */}
+          {/* <Box
+            component="img"
+            src={item.img}
+            alt={item.title}
+            sx={{
+              width: "300px",
+              height: "150px",
+              objectFit: "cover",
+              display: "block",
+            }}
+          /> */}
+           {isLoading ? (
+          <Skeleton
+            variant="rectangular"
+            width="300px"
+            height="150px"
+          />
+        ) : (
           <Box
             component="img"
             src={item.img}
@@ -119,6 +146,7 @@ const LifeAtPkpnc = () => {
               display: "block",
             }}
           />
+        )}
 
           {/* Gradient overlay */}
           <Box
@@ -172,6 +200,7 @@ const LifeAtPkpnc = () => {
     ))}
   </Grid>
 ) : (
+  
         <Box
   sx={{
     display: "flex",
@@ -196,7 +225,7 @@ const LifeAtPkpnc = () => {
           scrollSnapAlign: "center",
         }}
       >
-        {[first, second].map(
+        {/* {[first, second].map(
           (item, idx) =>
             item && (
               <Box
@@ -258,11 +287,96 @@ const LifeAtPkpnc = () => {
                 </Box>
               </Box>
             )
+        )} */}
+        {[first, second].map(
+  (item, idx) =>
+    item && (
+      <Box
+        key={idx}
+        sx={{
+          position: "relative",
+          borderRadius: "10px",
+          overflow: "hidden",
+          height: 200,
+        }}
+      >
+        {/* ✅ Skeleton while loading */}
+        {isLoading ? (
+          <Skeleton
+            variant="rectangular"
+            width="100%"
+            height="100%"
+            sx={{ borderRadius: "10px" }}
+          />
+        ) : (
+          <>
+            <Box
+              sx={{
+                backgroundImage: `url(${item.img})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100%",
+                height: "100%",
+                borderRadius: "10px",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  background:
+                    "linear-gradient(to top, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.2))",
+                },
+              }}
+            />
+
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                left: 20,
+                right: 20,
+                zIndex: 2,
+                textAlign: "left",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Astoria Classic Sans",
+                  fontWeight: 600,
+                  fontSize: 20,
+                  color: "#fff",
+                  textAlign: "center",
+                  mb: 1,
+                }}
+              >
+                {item.title}
+              </Typography>
+              <Typography
+                sx={{
+                  fontFamily: "SF Pro",
+                  fontWeight: 400,
+                  fontSize: 14,
+                  color: "#eee",
+                  textAlign: "center",
+                  mb: 5,
+                }}
+              >
+                {item.desc}
+              </Typography>
+            </Box>
+          </>
         )}
+      </Box>
+    )
+)}
+
       </Box>
     );
   })}
 </Box>
+
 
       )}
 
