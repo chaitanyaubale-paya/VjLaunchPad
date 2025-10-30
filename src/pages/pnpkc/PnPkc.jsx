@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import KothrudSection from "./KothrudSection";
 import HappyCommunities from "./CommunityInfo";
-import DisclaimerComponent from "./Disclaimer";
+// import DisclaimerComponent from "./Disclaimer";
 import Form, { RightSideForm } from "../CustomerForm";
 import KothrudBanner from "../../assets/images/pnpkc/pmDesktopBannerUpdated.png";
 import KothrudMobileBanner from "../../assets/images/pnpkc/pnMainBannerUpdated.png";
@@ -419,7 +419,7 @@ const PnPkc = () => {
                   color: "#DA8F08",
                   fontSize: { xs: 16, sm: 25 },
                   fontFamily: "Astoria Classic Sans",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   textAlign: "center",
                 }}
               >
@@ -704,8 +704,8 @@ const PnPkc = () => {
       <KothrudSection />
       <HappyCommunities />
       <Form />
-      {!isMobile && <FooterSection />}
-      <DisclaimerComponent />
+      {/* {!isMobile && <FooterSection />} */}
+      {/* <DisclaimerComponent /> */}
       {isMobile && (
         <Box
           sx={{
