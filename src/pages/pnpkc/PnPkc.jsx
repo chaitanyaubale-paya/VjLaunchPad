@@ -560,7 +560,7 @@ const PnPkc = () => {
                     color: "#D17700",
                     textAlign: "center",
                     fontFamily: "Astoria Classic Sans",
-                    fontSize: { xs: 20, md: 40 },
+                    fontSize: { xs: 20, md: 35 },
                   }}
                 >
                   आपलं कोथरूड,
@@ -569,7 +569,7 @@ const PnPkc = () => {
                   sx={{
                     color: "#000000",
                     fontFamily: "Astoria Classic Sans",
-                    fontSize: { xs: 20, md: 40 },
+                    fontSize: { xs: 20, md: 35 },
                   }}
                 >
                   आपलं प्रतिक नगर

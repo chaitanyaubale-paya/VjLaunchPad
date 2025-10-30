@@ -789,7 +789,7 @@ const Form = () => {
                 gap: 2,
               }}
             >
-              <Box
+              {/* <Box
                 sx={{
                   backgroundColor: "white",
                   borderRadius: "50%",
@@ -802,8 +802,8 @@ const Form = () => {
                 }}
               >
                 <EmailOutlinedIcon sx={{ color: "#A26800", fontSize: 28 }} />
-              </Box>
-              <Box>
+              </Box> */}
+              {/* <Box>
                 <Typography
                   sx={{
                     fontWeight: 600,
@@ -823,7 +823,7 @@ const Form = () => {
                 >
                   info@pnpkc.com
                 </Typography>
-              </Box>
+              </Box> */}
             </Box>
           </Box>
         </Box>
