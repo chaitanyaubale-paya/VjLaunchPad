@@ -1,5 +1,7 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography,Modal } from '@mui/material';
 import FeatureCards from './FeatureCards';
+import VirtualTourFormSimple from "./VirtualTourForm";
+import { useState } from "react";
 
 const AboutSection = () => {
   const highlights = [
@@ -7,6 +9,9 @@ const AboutSection = () => {
     { title: 'Smart Investment', desc: 'Premium offices with assured returns.' },
     { title: 'Global Standard', desc: 'Built for professionals and NRI investors.' },
   ];
+   const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false); 
 
   return (
     <Box
@@ -83,6 +88,7 @@ const AboutSection = () => {
 
       {/* Download Brochure Button */}
       <Box
+        onClick={handleOpen}
         sx={{
           width: { xs: '70%', sm: '75%', md: 260 },
           height: 'auto',
@@ -104,7 +110,6 @@ const AboutSection = () => {
           mx: 'auto',
           mt: { xs: 2, sm: 6, md: 6 },
         }}
-        onClick={() => console.log('Download Brochure clicked')}
       >
         <Typography
           sx={{
@@ -120,6 +125,33 @@ const AboutSection = () => {
           Download Brochure
         </Typography>
       </Box>
+       <Modal
+  open={open}
+  onClose={handleClose}
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    p: 2,
+    bgcolor: "rgba(0, 0, 0, 0.5)",  
+  }}
+>
+  <Box
+  className="custom-modal"
+    sx={{
+      bgcolor: "none",
+      borderRadius: "10px",
+      width: {xs:"100%",md:"50%"},
+      overflowY: "none",
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center',
+      border:"0px"
+    }}
+  >
+    <VirtualTourFormSimple showCloseButton={true} onClose={handleClose} />
+  </Box>
+</Modal>
     </Box>
   );
 };

@@ -1,6 +1,6 @@
 import { Box, Typography, InputBase, Button, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-
+import cameraPhotoIcon from '../../assets/Icons/indiWorks/cameraFluentColor.png'
 export default function VirtualTourFormSimple({ showCloseButton = false, onClose }) {
   return (
     <Box
@@ -181,7 +181,7 @@ export default function VirtualTourFormSimple({ showCloseButton = false, onClose
       </Box>
 
       {/* Button */}
-      <Button
+      {/* <Button
         sx={{
           mt: 3,
           px: { xs: 1.5, md: 2 },
@@ -200,7 +200,41 @@ export default function VirtualTourFormSimple({ showCloseButton = false, onClose
         }}
       >
         Book Virtual Tour
-      </Button>
+      </Button> */}
+      <Button
+  sx={{
+    mt: 3,
+    px: { xs: 1.5, md: 2 },
+    py: { xs: 1.5, md: 1.5 },
+    borderRadius: "8px",
+    textTransform: "none",
+    fontWeight: 600,
+    fontFamily: "SF Pro",
+    background: "linear-gradient(90deg, #D94A9A 0%, #F8966C 100%)",
+    color: "#FFFFFF",
+    "&:hover": {
+      background: "linear-gradient(90deg, #C73F88 0%, #E8835B 100%)",
+    },
+    width: { xs: "70%", md: "auto" },
+    fontSize: { xs: "14px", md: "14px" },
+    display: "flex",                // ✅ Ensures image + text align horizontally
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 1,                         // ✅ Adds spacing between image and text
+  }}
+>
+  <img
+    src={cameraPhotoIcon}
+    alt="camera icon"
+    style={{
+      width: 21,        // Adjust size as needed
+      height: 21,
+      objectFit: "contain",
+    }}
+  />
+  Book Virtual Tour
+</Button>
+
     </Box>
   );
 }

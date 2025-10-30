@@ -1,6 +1,6 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 // import vjLogo from "../../assets/images/vjLogo.png";
-import vjLogo from "../../assets/images/vjLogoWhite.png";
+// import vjLogo from "../../assets/images/vjLogoWhite.png";
 import ReraLogo from "../../assets/images/indiWorks/ReraLogo.png";
 import vjLogoUpdated from '../../assets/images/indiWorks/VJLogoUpdated.png'
 
@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        mt:{xs:0,sm:2},
+        mt:{xs:0,sm:0},
         width: "100%",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },

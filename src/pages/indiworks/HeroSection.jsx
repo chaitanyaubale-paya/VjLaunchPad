@@ -3,7 +3,6 @@ import {
   Button,
   Typography,
   Stack,
-  IconButton,
   useMediaQuery,
   Modal
 } from "@mui/material";
@@ -89,7 +88,7 @@ const HeroSection = () => {
             fontWeight: 600,
             fontSize: { xs: 28, md: 42 },
             lineHeight: 1.3,
-            textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+    textShadow: "4px 4px 1px rgba(0, 0, 0, 0.3)"
           }}
         >
           India’s Most Exceptional Office <br />
@@ -116,7 +115,7 @@ const HeroSection = () => {
 
         <Typography
           sx={{
-            mt: 2,
+            mt: 1,
             fontFamily: "Montserrat",
             fontWeight: 500,
             fontSize: { xs: 14, md: 16 },
@@ -134,12 +133,13 @@ const HeroSection = () => {
         {/* Action Buttons */}
         <Stack
           direction={{ xs: "column", sm: "row" }}
-          spacing={2}
+          spacing={8}
           justifyContent="center"
           alignItems="center"
-          mt={4}
+          mt={1}
         >
           <Button
+          onClick={handleOpen}
             sx={{
               backgroundColor: "#1F1F1F",
               color: "#fff",
@@ -157,6 +157,7 @@ const HeroSection = () => {
           </Button>
 
           <Button
+          onClick={handleOpen}
             sx={{
               background: "linear-gradient(132deg,#BC4279 0%,#DE6B67 100%)",
               color: "#fff",

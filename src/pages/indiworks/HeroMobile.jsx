@@ -2,8 +2,13 @@
 
 import { Box, Button, Typography, Stack,Modal } from "@mui/material";
 import IndiWorksMainBanner from "../../assets/images/indiWorks/indiWorksMainBanner.png";
+import { useState } from "react";
+import VirtualTourFormSimple from "./VirtualTourForm";
 
 const HeroMobile = () => {
+    const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <Box
       sx={{
@@ -107,6 +112,7 @@ const HeroMobile = () => {
           mt={3}
         >
           <Button
+            onClick={handleOpen}
             sx={{
               px: { xs: 1, md: 4 },
               py: { xs: 1, md: 1.8 },
@@ -122,6 +128,7 @@ const HeroMobile = () => {
             Book Virtual Tour
           </Button>
           <Button
+            onClick={handleOpen}
             sx={{
               px: { xs: 1.5, md: 4 },
               py: { xs: 1.5, md: 1.8 },
@@ -167,7 +174,33 @@ const HeroMobile = () => {
           onwards
         </Typography>
       </Box>
-       
+        <Modal
+         open={open}
+         onClose={handleClose}
+         sx={{
+           display: "flex",
+           alignItems: "center",
+           justifyContent: "center",
+           p: 2,
+           bgcolor: "rgba(0, 0, 0, 0.5)",  
+         }}
+       >
+         <Box
+         className="custom-modal"
+           sx={{
+             bgcolor: "none",
+             borderRadius: "10px",
+             width: "100%",
+             overflowY: "none",
+             display:'flex',
+             justifyContent:'center',
+             alignItems:'center',
+             border:"0px"
+           }}
+         >
+           <VirtualTourFormSimple showCloseButton={true} onClose={handleClose} />
+         </Box>
+       </Modal>
     </Box>
   );
 };
