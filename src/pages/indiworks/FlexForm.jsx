@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Typography } from "@mui/material";
 import VirtualTourFormSimple from "./VirtualTourForm";
 const FlexForm = () => {
@@ -28,7 +27,7 @@ const FlexForm = () => {
 
           }}
         >
-          <Box sx={{ width: "100%", textAlign: {xs:"center",md:"left"} }}>
+          <Box sx={{ width: "100%", textAlign: {xs:"center",md:"center"} }}>
 
             <Typography
               component="span"
@@ -43,7 +42,7 @@ const FlexForm = () => {
               Pune’s First{" "}
             </Typography>
           </Box>
-          <Box sx={{ width: "100%", textAlign: {xs:"center",md:"left"} }}>
+          <Box sx={{ width: "100%", textAlign: {xs:"center",md:"center"} }}>
             <Typography
               component="span"
               sx={{
@@ -52,7 +51,7 @@ const FlexForm = () => {
                 fontFamily: "Montserrat",
                 fontWeight: 700,
                 textDecoration: "underline",
-                 textAlign: {xs:"center",md:"left"}
+                 textAlign: {xs:"center",md:"center"}
               }}
             >
               Boutique{" "}
@@ -73,7 +72,7 @@ const FlexForm = () => {
               <br />
             </Typography>
           </Box>
-         <Box sx={{ width: "100%", textAlign: {xs:"center",md:"left"} }}>
+         <Box sx={{ width: "100%", textAlign: {xs:"center",md:"center"} }}>
 
             <Typography
               component="span"

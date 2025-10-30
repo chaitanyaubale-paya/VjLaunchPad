@@ -1,10 +1,11 @@
-import { Box, Typography, InputBase, Button } from "@mui/material";
+import { Box, Typography, InputBase, Button, IconButton } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
-export default function VirtualTourFormSimple() {
+export default function VirtualTourFormSimple({ showCloseButton = false, onClose }) {
   return (
     <Box
       sx={{
-        width: {xs:"100%",md:"80%"},
+        width: { xs: "100%", md: "80%" },
         bgcolor: "#2D324B",
         borderRadius: "12px",
         p: 2,
@@ -13,9 +14,27 @@ export default function VirtualTourFormSimple() {
         alignItems: "center",
         justifyContent: "flex-start",
         gap: 1,
-        margin:'auto'
+        margin: "auto",
+        position: "relative",
       }}
     >
+      {/* Conditional Close Button */}
+      {showCloseButton && (
+        <IconButton
+          onClick={onClose}
+          sx={{
+            position: "absolute",
+            top: 8,
+            right: 8,
+            color: "#fff",
+            bgcolor: "rgba(255,255,255,0.1)",
+            "&:hover": { bgcolor: "rgba(255,255,255,0.2)" },
+          }}
+        >
+          <CloseIcon />
+        </IconButton>
+      )}
+
       {/* Title */}
       <Typography
         sx={{
@@ -31,21 +50,20 @@ export default function VirtualTourFormSimple() {
       </Typography>
 
       {/* Full Name Label */}
-      <Box sx={{ display: "flex", alignItems: "center",width:'100%' }}>
-        <Box sx={{display:'flex',alignItems:'center',justifyContent:'flex-start',width:'100%'}}>
-        <Typography
-          sx={{
-            color: "#FFFFFF",
-            fontSize: { xs: "12px", md: "14px" },
-            fontFamily: "SF Pro",
-            fontWeight: 600,
-            lineHeight: "22px",
-          }}
-        >
-          Full Name <span style={{color:'red'}}>*</span>
-        </Typography>
+      <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-start", width: "100%" }}>
+          <Typography
+            sx={{
+              color: "#FFFFFF",
+              fontSize: { xs: "12px", md: "14px" },
+              fontFamily: "SF Pro",
+              fontWeight: 600,
+              lineHeight: "22px",
+            }}
+          >
+            Full Name <span style={{ color: "red" }}>*</span>
+          </Typography>
         </Box>
-       
       </Box>
 
       {/* Full Name Input */}
@@ -59,39 +77,37 @@ export default function VirtualTourFormSimple() {
           py: 0.5,
           display: "flex",
           alignItems: "center",
-          mb:1
+          mb: 1,
         }}
       >
         <InputBase
           placeholder="Full Name"
           sx={{
             color: "#A1A1A1",
-             fontSize: { xs: "12px", md: "14px" },
+            fontSize: { xs: "12px", md: "14px" },
             fontFamily: "SF Pro",
             fontWeight: 400,
             lineHeight: "10px",
-             
           }}
         />
       </Box>
 
       {/* Email Label */}
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" , width:'100%'}}>
-         <Box sx={{display:'flex',alignItems:'center',justifyContent:'flex-start',width:'100%'}}>
-        <Typography
-          sx={{
-            color: "#FFFFFF",
-             fontSize: { xs: "12px", md: "14px" },
-            fontFamily: "SF Pro",
-            fontWeight: 600,
-            lineHeight: "22px",
-            textAlign:'left',
-          }}
-        >
-          Email ID <span style={{color:'red'}}>*</span>
-        </Typography>
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-start", width: "100%" }}>
+          <Typography
+            sx={{
+              color: "#FFFFFF",
+              fontSize: { xs: "12px", md: "14px" },
+              fontFamily: "SF Pro",
+              fontWeight: 600,
+              lineHeight: "22px",
+              textAlign: "left",
+            }}
+          >
+            Email ID <span style={{ color: "red" }}>*</span>
+          </Typography>
         </Box>
-      
       </Box>
 
       {/* Email Input */}
@@ -101,11 +117,11 @@ export default function VirtualTourFormSimple() {
           backgroundColor: "#FFFFFF",
           borderRadius: "8px",
           outline: "2px solid #EA5F7A",
-            px: 1,
+          px: 1,
           py: 0.5,
           display: "flex",
           alignItems: "center",
-          mb:1
+          mb: 1,
         }}
       >
         <InputBase
@@ -113,7 +129,7 @@ export default function VirtualTourFormSimple() {
           sx={{
             flex: 1,
             color: "#A1A1A1",
-             fontSize: { xs: "12px", md: "14px" },
+            fontSize: { xs: "12px", md: "14px" },
             fontFamily: "SF Pro",
             fontWeight: 400,
             lineHeight: "20px",
@@ -122,20 +138,20 @@ export default function VirtualTourFormSimple() {
       </Box>
 
       {/* Phone Label */}
-      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center" , width:'100%'}}>
-         <Box sx={{display:'flex',alignItems:'center',justifyContent:'flex-start',width:'100%'}}>
-        <Typography
-          sx={{
-            color: "#FFFFFF",
-             fontSize: { xs: "12px", md: "14px" },
-            fontFamily: "SF Pro",
-            fontWeight: 600,
-            lineHeight: "22px",
-          }}
-        >
-          Phone No <span style={{color:'red'}}>*</span>
-        </Typography>
-      </Box>
+      <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", width: "100%" }}>
+        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-start", width: "100%" }}>
+          <Typography
+            sx={{
+              color: "#FFFFFF",
+              fontSize: { xs: "12px", md: "14px" },
+              fontFamily: "SF Pro",
+              fontWeight: 600,
+              lineHeight: "22px",
+            }}
+          >
+            Phone No <span style={{ color: "red" }}>*</span>
+          </Typography>
+        </Box>
       </Box>
 
       {/* Phone Input */}
@@ -145,7 +161,7 @@ export default function VirtualTourFormSimple() {
           backgroundColor: "#FFFFFF",
           borderRadius: "8px",
           outline: "2px solid #EA5F7A",
-           px: 1,
+          px: 1,
           py: 0.5,
           display: "flex",
           alignItems: "center",
@@ -156,7 +172,7 @@ export default function VirtualTourFormSimple() {
           sx={{
             flex: 1,
             color: "#A1A1A1",
-             fontSize: { xs: "12px", md: "14px" },
+            fontSize: { xs: "12px", md: "14px" },
             fontFamily: "SF Pro",
             fontWeight: 400,
             lineHeight: "20px",
@@ -168,8 +184,8 @@ export default function VirtualTourFormSimple() {
       <Button
         sx={{
           mt: 3,
-          px:{xs:1.5,md:2}, 
-          py: {xs:1.5,md:1.5},
+          px: { xs: 1.5, md: 2 },
+          py: { xs: 1.5, md: 1.5 },
           borderRadius: "8px",
           textTransform: "none",
           fontWeight: 600,
@@ -179,8 +195,8 @@ export default function VirtualTourFormSimple() {
           "&:hover": {
             background: "linear-gradient(90deg, #C73F88 0%, #E8835B 100%)",
           },
-          width: {xs:"70%",md:'auto'},
-           fontSize: { xs: "14px", md: "14px" },
+          width: { xs: "70%", md: "auto" },
+          fontSize: { xs: "14px", md: "14px" },
         }}
       >
         Book Virtual Tour

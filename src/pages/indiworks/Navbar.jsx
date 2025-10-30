@@ -81,7 +81,7 @@ const Navbar = () => {
       border:"0px"
     }}
   >
-    <VirtualTourFormSimple />
+    <VirtualTourFormSimple showCloseButton={true} onClose={handleClose}/>
   </Box>
 </Modal>
     </Box>

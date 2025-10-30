@@ -1,6 +1,8 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import vjLogo from "../../assets/images/vjLogo.png";
+// import vjLogo from "../../assets/images/vjLogo.png";
+import vjLogo from "../../assets/images/vjLogoWhite.png";
 import ReraLogo from "../../assets/images/indiWorks/ReraLogo.png";
+import vjLogoUpdated from '../../assets/images/indiWorks/VJLogoUpdated.png'
 
 export default function Footer() {
   const theme = useTheme();
@@ -9,7 +11,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        mt:{xs:0,sm:4},
+        mt:{xs:0,sm:2},
         width: "100%",
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
@@ -34,10 +36,13 @@ export default function Footer() {
       >
         {/* 1️⃣ VJ Logo */}
         <Box
+          
           component="img"
-          src={vjLogo}
+          src={vjLogoUpdated}
           alt="VJ Logo"
+          textAlign="left"
           sx={{
+            mt:5,
             width: { xs: "80%", sm: "100%", md: "30%" },
             height: { xs: "80%",sm: "100%", md: "30%" },
           }}
@@ -49,7 +54,7 @@ export default function Footer() {
             fontFamily: "Montserrat",
             fontSize: { xs: 20, md: 20 },
             fontWeight: 700,
-            color: "#000",
+            color: "white",
             textTransform: "uppercase",
             mt: { xs: 2, md: 0 },
           }}
@@ -62,7 +67,7 @@ export default function Footer() {
           sx={{
             fontFamily: "Montserrat",
             fontSize: { xs: 16, sm: 18, md: 15 },
-            color: "#000",
+            color: "white",
             fontWeight: 500,
             maxWidth: { xs: "90%", md: "250px" },
           }}
@@ -89,7 +94,7 @@ export default function Footer() {
             sx={{
               fontFamily: "Montserrat",
               fontSize: { xs: 18, sm: 20, md: 20 },
-              color: "#000",
+              color: "white",
               fontWeight: 700,
             }}
           >
@@ -99,7 +104,7 @@ export default function Footer() {
             sx={{
               fontFamily: "Montserrat",
               fontSize: { xs: 18, sm: 20, md: 20 },
-              color: "#000",
+              color: "white",
               fontWeight: 700,
             }}
           >
@@ -120,7 +125,7 @@ export default function Footer() {
           <Box
             component="span"
             sx={{
-              color: "#000",
+              color: "white",
               fontWeight: 500,
               fontFamily: "Montserrat",
               fontSize: { xs: 18, md: 19 },

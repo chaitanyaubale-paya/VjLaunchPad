@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Typography } from '@mui/material';
 import FeatureCards from './FeatureCards';
 
@@ -12,7 +11,7 @@ const AboutSection = () => {
   return (
     <Box
       sx={{
-        py: { xs: 6, sm: 8, md: 10 },
+        py: { xs: 6, sm: 8, md: 2 },
         px: { xs: 3, sm: 5, md: 8 },
         textAlign: 'center',
         width: '100%',

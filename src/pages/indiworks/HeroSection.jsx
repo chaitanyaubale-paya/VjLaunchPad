@@ -7,9 +7,8 @@ import {
   useMediaQuery,
   Modal
 } from "@mui/material";
-import PhoneIcon from "@mui/icons-material/Phone";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import VjLogo from "../../assets/images/vjLogoWhite.png"; // top-left logo
+// import VjLogo from "../../assets/images/vjLogoWhite.png"; // top-left logo
+import VjLogo from "../../assets/images/indiWorks/VJLogoUpdated.png"; // top-left logo
 import DesktopBanner from "../../assets/images/indiWorks/desktopIndiBanner.png"; // hero image (person)
 import IndiWorksBrand from '../../assets/images/indiWorks/indiWorksBrand.png'
 import { useState } from "react";
@@ -25,7 +24,7 @@ const HeroSection = () => {
       sx={{
         position: "relative",
         width: "100%",
-        height: "150vh",
+        height: "100vh",
         overflow: "hidden",
         backgroundImage: `url(${DesktopBanner})`,
         backgroundSize: "cover",
@@ -40,7 +39,7 @@ const HeroSection = () => {
           justifyContent: "space-between",
           alignItems: "center",
           px: { xs: 3, md: 2 },
-          py: 2,
+          py: 0,
         }}
       >
         {/* Left Logo */}
@@ -48,7 +47,7 @@ const HeroSection = () => {
           component="img"
           src={VjLogo}
           alt="VJ Developers"
-          sx={{ width: { xs: 130, md: 250 }, height: "auto" }}
+          sx={{ width: { xs: 130, md: 200 }, height: "70px" }}
         />
 
         {/* Enquire Now Button */}
@@ -57,7 +56,7 @@ const HeroSection = () => {
             backgroundColor: "#15133D",
             color: "#fff",
             borderRadius: "40px",
-            px: { xs: 3, md: 4 },
+            px: { xs: 3, md: 2 },
             py: 1,
             fontSize: { xs: 12, md: 14 },
             fontFamily: "Montserrat",
@@ -65,6 +64,8 @@ const HeroSection = () => {
             outline: "1px solid #BEBEBE",
             textTransform: "none",
             "&:hover": { backgroundColor: "#1E1A5A" },
+            position:'fixed',
+            right:50,
           }}
            onClick={handleOpen}
         >
@@ -97,18 +98,21 @@ const HeroSection = () => {
             NRI Investors
           </Box>
         </Typography>
-
-        <Typography
-          sx={{
-            mt: 1,
-            fontFamily: "Montserrat",
-            fontWeight: 600,
-            fontSize: { xs: 16, md: 18 },
-            color: "#fff",
-          }}
-        >
-          The Future of Growth Awaits
-        </Typography>
+ 
+          <Typography
+            sx={{
+              fontFamily: "Montserrat",
+              fontWeight: 600,
+              color: "#fff",
+              fontSize: { xs: 13, md: 30 },
+            }}
+          >
+            Offices starting from{" "}
+            <Box component="span" sx={{ color: "#FFEC1A" }}>
+              65 lacs*
+            </Box>{" "}
+            onwards
+          </Typography>
 
         <Typography
           sx={{
@@ -184,33 +188,10 @@ const HeroSection = () => {
           gap: 1,
         }}
       >
-        <Box
-          sx={{
-            background: "linear-gradient(90deg,#4F6193 0%,#2E3C63 100%)",
-            borderRadius: "6px",
-            px: { xs: 2, md: 3 },
-            py: { xs: 1, md: 1.2 },
-          }}
-        >
-          <Typography
-            sx={{
-              fontFamily: "Montserrat",
-              fontWeight: 600,
-              color: "#fff",
-              fontSize: { xs: 13, md: 15 },
-            }}
-          >
-            Offices starting from{" "}
-            <Box component="span" sx={{ color: "#FFEC1A" }}>
-              65 lacs*
-            </Box>{" "}
-            onwards
-          </Typography>
-        </Box>
+    
 
         <Box
           sx={{
-            backgroundColor: "#fff",
             borderRadius: "6px",
             px: 2,
             py: 0.8,
@@ -255,7 +236,7 @@ const HeroSection = () => {
       border:"0px"
     }}
   >
-    <VirtualTourFormSimple />
+    <VirtualTourFormSimple showCloseButton={true} onClose={handleClose} />
   </Box>
 </Modal>
     </Box>

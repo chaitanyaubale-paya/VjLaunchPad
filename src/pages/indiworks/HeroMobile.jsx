@@ -1,5 +1,5 @@
 // src/components/Hero/HeroMobile.jsx
-import {useState} from "react";
+
 import { Box, Button, Typography, Stack,Modal } from "@mui/material";
 import IndiWorksMainBanner from "../../assets/images/indiWorks/indiWorksMainBanner.png";
 
