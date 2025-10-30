@@ -27,15 +27,10 @@ const PnPkc = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const [isLoading, setIsLoading] = useState(true);
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+   const [isLoaded, setIsLoaded] = useState(false);
 
-   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000); // 2 seconds skeleton duration
-    return () => clearTimeout(timer);
-  }, []);
+
 
   return (
     <Box
@@ -49,6 +44,7 @@ const PnPkc = () => {
         px: { xs: 1.5, md: 2 }, // ✅ horizontal padding (left + right)
         py: 0,
         boxSizing: "border-box",
+        overflow:'auto'
       }}
     >
      
@@ -59,7 +55,7 @@ const PnPkc = () => {
           sx={{
             position: "relative", // parent container for positioning
             width: "100%",
-            height: isMobile ? "64vh" : "110vh",
+            height: isMobile ? "64vh" : "auto",
             borderRadius: "8px",
             overflow: "hidden",
           }}
@@ -93,48 +89,85 @@ const PnPkc = () => {
               }}
             />
           )} */}
-          {isLoading ? (
-  // Show skeleton while loading
+
+          <Box
+  sx={{
+    position: "fixed",
+    top: {xs:20,sm:40},
+    right: {xs:25,sm:50},
+    zIndex: 1000, // Ensure it's above other elements
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: { xs: 100, sm: 150 }, // Adjust size for mobile and desktop
+    height: { xs: 30, sm: 40 }, 
+    background:'red',
+    borderRadius: "30px",
+
+  }}
+>
+  <Button
+    sx={{
+      background: "#361617",
+      color: "#FFFFFF",
+      fontFamily: "Montserrat",
+      fontWeight: 500,
+      fontSize: { xs: 12, sm: 12 }, // Adjust font size
+      padding: 0,
+      width: "100%",
+      height: "100%",
+      "&:hover": {
+        background: "#2A1011",
+      },
+    borderRadius: "30px",
+
+    }}
+    onClick={handleOpen}
+  >
+    <Typography sx={{ fontSize: { xs: 10, sm: 12 }, fontFamily: "SF Pro" ,textTransform: "none"}}>Enquire Now</Typography>
+  </Button>
+</Box>
+
+         {!isLoaded && (
   <Skeleton
     variant="rectangular"
     width="100%"
     height={isMobile ? "64vh" : "110vh"}
     sx={{ borderRadius: "8px" }}
   />
+)}
+
+{isMobile ? (
+  <Box
+    component="img"
+    src={KothrudMobileBanner}
+    alt="Top Banner"
+    onLoad={() => setIsLoaded(true)} // ✅ triggers when image finishes loading
+    sx={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      borderRadius: "8px",
+      display: isLoaded ? "block" : "none", // hide until loaded
+      transition: "opacity 0.5s ease-in-out",
+    }}
+  />
 ) : (
-  // Show actual image after timeout
-  <>
-    {isMobile ? (
-      <Box
-        component="img"
-        src={KothrudMobileBanner}
-        alt="Top Banner"
-        sx={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          borderRadius: "8px",
-          display: "block",
-          opacity: 1,
-          transition: "opacity 0.5s ease-in-out",
-        }}
-      />
-    ) : (
-      <Box
-        component="img"
-        src={KothrudBanner}
-        alt="Top Banner"
-        sx={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          borderRadius: "8px",
-          opacity: 1,
-          transition: "opacity 0.5s ease-in-out",
-        }}
-      />
-    )}
-  </>
+
+  <Box
+  component="img"
+  src={KothrudBanner}
+  alt="Top Banner"
+  onLoad={() => setIsLoaded(true)}
+  sx={{
+    width: "100%",           // Make the image full width
+    maxHeight: "900px",      // Set a maximum height to avoid stretching/cropping
+    objectFit: "cover",      // Preserve aspect ratio without distortion
+    borderRadius: "8px",     // Optional: rounded corners
+    display: isLoaded ? "block" : "none",
+    transition: "opacity 0.5s ease-in-out",  // Smooth opacity transition
+  }}
+/>
 )}
          
 
@@ -145,13 +178,13 @@ const PnPkc = () => {
             alt="Logo"
             sx={{
               position: "absolute",
-              top: isMobile ? 10 : 20,
+              top: isMobile ? 10 : 0,
               left: isMobile ? 10 : 40,
               width: { xs: 80, md: 200 },
               height: "auto",
             }}
           />
-
+           
           {/* 🟠 Overlay Buttons */}
           <Box
             sx={{
@@ -216,15 +249,15 @@ const PnPkc = () => {
         {!isMobile && (
           <>
             {/* Text Above Buttons */}
-            <Box sx={{ width: "100%", height: "100%", background: "#E6E6E6" }}>
+            {/* <Box sx={{ width: "100%", height: "100%",  }}>
               <Typography
                 sx={{
                   position: "absolute",
-                  bottom: "140px", // just above buttons
+                  bottom: "400px", // just above buttons
                   left: "50%",
                   transform: "translateX(-50%)",
-                  color: "white",
-                  fontSize: 25,
+                  color: "black",
+                  fontSize: 20,
                   fontFamily: "Astoria Classic Sans",
                   fontWeight: 500,
                   textAlign: "center",
@@ -233,8 +266,6 @@ const PnPkc = () => {
                   py: 1,
                   lineHeight: 1.5,
                   wordWrap: "break-word",
-                  background: "rgba(200, 188, 188, 0.3)", // translucent dark background
-                  backdropFilter: "blur(1px)", // slight blur behind text
                   borderRadius: "4px",
                 }}
               >
@@ -242,12 +273,12 @@ const PnPkc = () => {
                 <br />
                 while embracing the future
               </Typography>
-            </Box>
+            </Box> */}
             {/* Buttons Over Banner */}
             <Box
               sx={{
                 position: "absolute",
-                bottom: "40px",
+                bottom: "50px",
                 left: "50%",
                 transform: "translateX(-50%)",
                 display: "flex",
@@ -264,8 +295,8 @@ const PnPkc = () => {
                   fontSize: 15,
                   borderRadius: "8px",
                   textTransform: "none",
-                  px: 3,
-                  py: 1.2,
+                  px: 2,
+                  py: 1,
                   "&:hover": { background: "#3E4753" },
                   width: "250px",
                 }}
@@ -282,8 +313,8 @@ const PnPkc = () => {
                   fontSize: 15,
                   borderRadius: "8px",
                   textTransform: "none",
-                  px: 3,
-                  py: 2,
+                 px: 2,
+                  py: 1,
                   "&:hover": { background: "#2A1011" },
                   width: "250px",
                 }}
@@ -631,34 +662,37 @@ const PnPkc = () => {
   <Box
     sx={{
       display: "flex",
-      justifyContent: "center",
-      padding: { xs: 0, md: 0 },
+      justifyContent: "space-between",
+      padding: { xs: 0,sm:3, md: 2 },
     }}
   >
-    {isLoading ? (
-      <Skeleton
-        variant="rectangular"
-        width="800px"
-        height={450}
-        sx={{
-          maxWidth: "800px",
-          borderRadius: "8px",
-        }}
-      />
-    ) : (
-      <Box
-        component="img"
-        src={AaplaKothrudFlex}
-        alt="Aapla Kothrud Banner"
-        sx={{
-          width: "100%",
-          height: 450,
-          maxWidth: 800,
-          borderRadius: "8px",
-          objectFit: "cover",
-        }}
-      />
-    )}
+    {!isLoaded && (
+  <Skeleton
+    variant="rectangular"
+    width={"800px"}
+    height={450}
+    sx={{
+      maxWidth: "800px",
+      borderRadius: "8px",
+    }}
+  />
+)}
+
+<Box
+  component="img"
+  src={AaplaKothrudFlex}
+  alt="Aapla Kothrud Banner"
+  onLoad={() => setIsLoaded(true)} // ✅ updates when image finishes loading
+  sx={{
+    width:{  sm: "100%", md: "100%" },
+    height: 400,
+    maxWidth: 800,
+    borderRadius: "25px",
+    objectFit: "cover",
+    display: isLoaded ? "block" : "none", // hide until loaded
+    transition: "opacity 0.5s ease-in-out",
+  }}
+/>
   </Box>
 )}
 
@@ -742,7 +776,7 @@ const PnPkc = () => {
             </IconButton>
 
             {/* Your existing form content */}
-            <RightSideForm sx={{ width: "100%", p: { xs: 0, md: 3 } }} />
+            <RightSideForm closeModal={handleClose} sx={{ width: "100%", p: { xs: 0, md: 3 }  }} />
           </Box>
         </Box>
       </Modal>

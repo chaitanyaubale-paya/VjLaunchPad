@@ -1,30 +1,243 @@
-import React from "react";
 import { Box, Typography, TextField, Button } from "@mui/material";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
-
-import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState,useEffect } from "react";
+import axios from "axios";
 
-const RightSideForm  = ({ sx = {} }) =>{
+
+// const RightSideForm  = ({ sx = {} }) =>{
+//   return (
+//     <Box
+//       sx={{
+//         display: "flex",
+//         flexDirection: "column",
+//         gap: 2,
+//         background: "white",
+//         width: { xs: "100%", md: "30%" },
+//         padding:{xs:3,md:3},
+//         ...sx,
+//         borderRadius: 2,
+//       }}
+//     >
+//       {/* Full Name */}
+//       <Box>
+//         <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
+//           <PersonIcon sx={{ color: "#A26800", fontSize: 25, mr: 2  }} />
+//           <Typography
+//             sx={{
+//               fontSize: { xs: 17, md: 17 },
+//               fontWeight: 600,
+//               color: "#1B152B",
+//               fontFamily: "SF Pro",
+//             }}
+//           >
+//             Full Name *
+//           </Typography>
+//         </Box>
+//         <TextField
+//           placeholder="Enter your name"
+//           variant="outlined"
+//           fullWidth
+//           size="small"
+//           sx={{ fontFamily: "SF Pro", background: "#F9F8F5" }}
+//         />
+//       </Box>
+
+//       {/* Email */}
+//       <Box>
+//         <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
+//           <EmailIcon sx={{ color: "#A26800", fontSize: 25, mr: 2  }} />
+//           <Typography
+//             sx={{
+//               fontFamily: "SF Pro",
+//               fontWeight: 600,
+//               color: "#1B152B",
+//               fontSize: { xs: 17, md: 17 },
+//             }}
+//           >
+//             Email Address *
+//           </Typography>
+//         </Box>
+//         <TextField
+//           placeholder="your.email@example.com"
+//           variant="outlined"
+//           fullWidth
+//           size="small"
+//           sx={{ fontFamily: "SF Pro", background: "#F9F8F5" }}
+//         />
+//       </Box>
+
+//       {/* Phone Number */}
+//       <Box>
+//         <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
+//           <PhoneIcon sx={{ color: "#A26800", fontSize: 25, mr: 2 }} />
+//           <Typography
+//             sx={{
+//               fontFamily: "SF Pro",
+//               fontSize: { xs: 17, md: 17 },
+//               fontWeight: 600,
+//               color: "#1B152B",
+//             }}
+//           >
+//             Phone Number *
+//           </Typography>
+//         </Box>
+//         <TextField
+//           placeholder="+91  Enter your phone number"
+//           variant="outlined"
+//           fullWidth
+//           size="small"
+//           sx={{ fontFamily: "SF Pro", fontSize: 10, background: "#F9F8F5" }}
+//         />
+//       </Box>
+
+//       {/* Button */}
+//       <Button
+//         variant="contained"
+//         fullWidth
+//         sx={{
+//           mt: 1,
+//           bgcolor: "#A26800",
+//           textTransform: "none",
+//           borderRadius: 1,
+//           fontWeight: 600,
+//           "&:hover": { bgcolor: "#864F00" },
+//         }}
+//       >
+//         Request a call
+//       </Button>
+
+//       <Typography
+//         sx={{
+//           mt: 1,
+//           fontSize: 15,
+//           fontWeight: 600,
+//           color: "#5E5E5E",
+//           textAlign: "center",
+//           fontFamily: "SF Pro",
+//         }}
+//       >
+//         Your privacy is important to us. We will never share your information
+//         with third parties.
+//       </Typography>
+//     </Box>
+//   );
+// };
+
+const RightSideForm = ({ sx = {} , closeModal}) => {
+  const [formData, setFormData] = useState({
+    full_name: "",
+    email: "",
+    phone_number: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [shouldSubmit, setShouldSubmit] = useState(false); // trigger flag for useEffect
+  const buid = "123"; // can be dynamic if needed
+
+  // ✅ Handles input change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // ✅ Validation before triggering useEffect
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { full_name, email, phone_number, message } = formData;
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const phoneRegex = /^(?:\+91|0)?(\d{10})$/; 
+    const match = phone_number.match(phoneRegex);
+
+    if(!full_name || !email || !phone_number || !message) return toast.error("All fields are required");
+    if (!full_name.trim()) return toast.error("Full name is required");
+    if (!email.trim()) return toast.error("Email is required");
+    if (!emailRegex.test(email)) return toast.error("Invalid email format");
+    if (!phone_number.trim()) return toast.error("Phone number is required");
+    if(!match) return toast.error("Invalid phone number format");
+    if (!message.trim()) return toast.error("Message is required");
+    if (!match) {
+  return toast.error("Invalid phone number format");
+} else {
+  const cleanPhoneNumber = match[1]; // Extracting the last 10 digits
+  console.log("Valid Phone Number: ", cleanPhoneNumber);
+}
+
+    // ✅ trigger useEffect for submission
+    setShouldSubmit(true);
+  };
+
+  // ✅ useEffect to handle API POST when shouldSubmit changes
+useEffect(() => {
+  if (!shouldSubmit) return;
+
+  const submitForm = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post("http://localhost:5000/api/form", {
+        ...formData,
+        buid,
+      });
+
+      const result = response.data;
+
+      // Show toast before closing modal
+      if (result.success===true) {
+        toast.success("Form submitted successfully!");
+        setFormData({
+          full_name: "",
+          email: "",
+          phone_number: "",
+          message: "",
+        });
+
+        // Close the modal only after the toast has been shown
+        if (closeModal) {
+          closeModal();
+        }
+      } else {
+        toast.error(result.message || "Submission failed. Try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error(
+        error.response?.data?.message || "Server error. Please try again later."
+      );
+    } finally {
+      setLoading(false);
+      setShouldSubmit(false); // reset trigger
+    }
+  };
+
+  submitForm();
+}, [shouldSubmit, closeModal]); // runs only when user triggers submission
+ // runs only when user triggers submission
+
   return (
     <Box
+      component="form"
+      onSubmit={handleSubmit}
       sx={{
         display: "flex",
         flexDirection: "column",
         gap: 2,
         background: "white",
         width: { xs: "100%", md: "30%" },
-        padding:{xs:3,md:3},
-        ...sx,
+        padding: { xs: 3, md: 3 },
         borderRadius: 2,
+        ...sx,
       }}
     >
+  
+
       {/* Full Name */}
       <Box>
         <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
-          <PersonIcon sx={{ color: "#A26800", fontSize: 25, mr: 2  }} />
+          <PersonIcon sx={{ color: "#A26800", fontSize: 25, mr: 2 }} />
           <Typography
             sx={{
               fontSize: { xs: 17, md: 17 },
@@ -37,18 +250,21 @@ const RightSideForm  = ({ sx = {} }) =>{
           </Typography>
         </Box>
         <TextField
+          name="full_name"
           placeholder="Enter your name"
           variant="outlined"
           fullWidth
           size="small"
-          sx={{ fontFamily: "SF Pro", background: "#F9F8F5" }}
+          sx={{ background: "#F9F8F5" }}
+          value={formData.full_name}
+          onChange={handleChange}
         />
       </Box>
 
       {/* Email */}
       <Box>
         <Box sx={{ display: "flex", alignItems: "center", mb: 0.5 }}>
-          <EmailIcon sx={{ color: "#A26800", fontSize: 25, mr: 2  }} />
+          <EmailIcon sx={{ color: "#A26800", fontSize: 25, mr: 2 }} />
           <Typography
             sx={{
               fontFamily: "SF Pro",
@@ -61,11 +277,14 @@ const RightSideForm  = ({ sx = {} }) =>{
           </Typography>
         </Box>
         <TextField
+          name="email"
           placeholder="your.email@example.com"
           variant="outlined"
           fullWidth
           size="small"
-          sx={{ fontFamily: "SF Pro", background: "#F9F8F5" }}
+          sx={{ background: "#F9F8F5" }}
+          value={formData.email}
+          onChange={handleChange}
         />
       </Box>
 
@@ -85,16 +304,47 @@ const RightSideForm  = ({ sx = {} }) =>{
           </Typography>
         </Box>
         <TextField
-          placeholder="+91  Enter your phone number"
+          name="phone_number"
+          placeholder="+91 Enter your phone number"
           variant="outlined"
           fullWidth
           size="small"
-          sx={{ fontFamily: "SF Pro", fontSize: 10, background: "#F9F8F5" }}
+          sx={{ background: "#F9F8F5" }}
+          value={formData.phone_number}
+          onChange={handleChange}
         />
       </Box>
 
-      {/* Button */}
+      {/* Message */}
+      <Box>
+        <Typography
+          sx={{
+            fontFamily: "SF Pro",
+            fontSize: { xs: 17, md: 17 },
+            fontWeight: 600,
+            color: "#1B152B",
+            mb: 0.5,
+          }}
+        >
+          Message *
+        </Typography>
+        <TextField
+          name="message"
+          placeholder="Type your message..."
+          variant="outlined"
+          fullWidth
+          multiline
+          rows={3}
+          size="small"
+          sx={{ background: "#F9F8F5" }}
+          value={formData.message}
+          onChange={handleChange}
+        />
+      </Box>
+
+      {/* Submit Button */}
       <Button
+        type="submit"
         variant="contained"
         fullWidth
         sx={{
@@ -105,8 +355,9 @@ const RightSideForm  = ({ sx = {} }) =>{
           fontWeight: 600,
           "&:hover": { bgcolor: "#864F00" },
         }}
+        disabled={loading}
       >
-        Request a call
+        {loading ? "Submitting..." : "Request a call"}
       </Button>
 
       <Typography
@@ -125,8 +376,6 @@ const RightSideForm  = ({ sx = {} }) =>{
     </Box>
   );
 };
-
-
 
 
 
@@ -295,7 +544,7 @@ const Form = () => {
           </Box>
         </Box>
       </Box>
-
+    <ToastContainer position="bottom-right" autoClose={2500} />
       {/* RIGHT SIDE — Form */}
       <RightSideForm />
     </Box>
