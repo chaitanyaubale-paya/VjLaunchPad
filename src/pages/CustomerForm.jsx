@@ -179,7 +179,7 @@ const RightSideForm = ({ sx = {}, closeModal }) => {
     const submitForm = async () => {
       setLoading(true);
       try {
-        const response = await axios.post("http://localhost:5000/api/form", {
+        const response = await axios.post("https://vjlaunchpad.vjoneparivaar.com/api/form", {
           ...formData,
           buid,
         });

@@ -44,7 +44,7 @@ const KothrudSection = () => {
           fontFamily: "Astoria Classic Sans",
         }}
       >
-        At the heart of Kothrud
+        At The Heart of Kothrud
       </Typography>
 
       {/* Subheading */}
