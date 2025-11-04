@@ -147,7 +147,6 @@ const FooterSection = () => {
           justifyContent: "center",
           p: 1,
           bgcolor: "rgba(0, 0, 0, 0.5)",
-          backdropFilter: "blur(5px)",
         }}
       >
         <Box

@@ -222,7 +222,7 @@ const PnPkc = () => {
                     height: { xs: "40px", md: "50px" },
                   }}
                 >
-                  Sample Residence Film
+                  Sample Residence Film 
                 </Button>
                 <Button
                   fullWidth
@@ -736,7 +736,6 @@ const PnPkc = () => {
           justifyContent: "center",
           p: 1,
           bgcolor: "rgba(0, 0, 0, 0.5)",
-          backdropFilter: "blur(5px)",
         }}
       >
         <Box
