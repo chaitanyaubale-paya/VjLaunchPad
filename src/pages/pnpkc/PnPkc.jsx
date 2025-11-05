@@ -735,7 +735,8 @@ const PnPkc = () => {
           alignItems: "center",
           justifyContent: "center",
           p: 1,
-          bgcolor: "rgba(0, 0, 0, 0.5)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // dark semi-transparent
+      backdropFilter: "blur(5px)",
         }}
       >
         <Box
@@ -785,3 +786,4 @@ const PnPkc = () => {
 };
 
 export default PnPkc;
+// bgcolor: "rgba(0, 0, 0, 0.5)",
