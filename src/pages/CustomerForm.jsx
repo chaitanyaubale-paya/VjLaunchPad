@@ -19,7 +19,8 @@ const RightSideForm = ({ sx = {}, closeModal }) => {
   const [loading, setLoading] = useState(false);
   const [shouldSubmit, setShouldSubmit] = useState(false); // trigger flag for useEffect
   const buid = "160"; // can be dynamic if needed
-  const apiUrl = import.meta.env.VITE_API_URL;
+  // const apiUrl = import.meta.env.VITE_API_URL;
+  const apiUrl = import.meta.env.VITE_ENV === "development" ? import.meta.env.VITE_API_URL_DEV : import.meta.env.VITE_API_URL;
   // ✅ Handles input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
