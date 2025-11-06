@@ -44,7 +44,7 @@ const KothrudSection = () => {
           fontFamily: "Astoria Classic Sans",
         }}
       >
-        At the heart of Kothrud
+        At The Heart of Kothrud
       </Typography>
 
       {/* Subheading */}
@@ -162,7 +162,7 @@ const KothrudSection = () => {
     sx={{
       bgcolor: "#D4A04A",
       color: "#fff",
-      fontWeight: 600,
+      fontWeight: 500,
       px: 3,
       py: 1,
       borderRadius: "2px",

@@ -65,7 +65,8 @@ const Navbar = () => {
     alignItems: "center",
     justifyContent: "center",
     p: 2,
-    bgcolor: "rgba(0, 0, 0, 0.5)",  
+     backgroundColor: "rgba(0, 0, 0, 0.5)", // dark semi-transparent
+      backdropFilter: "blur(5px)", 
   }}
 >
   <Box

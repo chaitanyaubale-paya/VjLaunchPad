@@ -8,7 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/Launchpad"> {/* 👈 Add basename here */}
+    <BrowserRouter basename="/"> {/* 👈 Add basename here */}
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <App />

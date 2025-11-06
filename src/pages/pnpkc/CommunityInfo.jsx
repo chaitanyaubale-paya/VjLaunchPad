@@ -53,7 +53,7 @@ const HappyCommunities = () => {
           mt: 1,
         }}
       >
-        45+ years of creating spaces built on trust, transparency, and
+        45+ years of creating spaces built on Trust, Design and
         People-First
       </Typography>
 </Box>

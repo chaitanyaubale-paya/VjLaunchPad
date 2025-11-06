@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import KothrudSection from "./KothrudSection";
 import HappyCommunities from "./CommunityInfo";
-import DisclaimerComponent from "./Disclaimer";
+// import DisclaimerComponent from "./Disclaimer";
 import Form, { RightSideForm } from "../CustomerForm";
 import KothrudBanner from "../../assets/images/pnpkc/pmDesktopBannerUpdated.png";
 import KothrudMobileBanner from "../../assets/images/pnpkc/pnMainBannerUpdated.png";
@@ -222,7 +222,7 @@ const PnPkc = () => {
                     height: { xs: "40px", md: "50px" },
                   }}
                 >
-                  Sample Residence Film
+                  Sample Residence Film 
                 </Button>
                 <Button
                   fullWidth
@@ -419,7 +419,7 @@ const PnPkc = () => {
                   color: "#DA8F08",
                   fontSize: { xs: 16, sm: 25 },
                   fontFamily: "Astoria Classic Sans",
-                  fontWeight: 700,
+                  fontWeight: 500,
                   textAlign: "center",
                 }}
               >
@@ -560,7 +560,7 @@ const PnPkc = () => {
                     color: "#D17700",
                     textAlign: "center",
                     fontFamily: "Astoria Classic Sans",
-                    fontSize: { xs: 20, md: 40 },
+                    fontSize: { xs: 20, md: 35 },
                   }}
                 >
                   आपलं कोथरूड,
@@ -569,7 +569,7 @@ const PnPkc = () => {
                   sx={{
                     color: "#000000",
                     fontFamily: "Astoria Classic Sans",
-                    fontSize: { xs: 20, md: 40 },
+                    fontSize: { xs: 20, md: 35 },
                   }}
                 >
                   आपलं प्रतिक नगर
@@ -704,8 +704,8 @@ const PnPkc = () => {
       <KothrudSection />
       <HappyCommunities />
       <Form />
-      {!isMobile && <FooterSection />}
-      <DisclaimerComponent />
+      {/* {!isMobile && <FooterSection />} */}
+      {/* <DisclaimerComponent /> */}
       {isMobile && (
         <Box
           sx={{
@@ -735,8 +735,8 @@ const PnPkc = () => {
           alignItems: "center",
           justifyContent: "center",
           p: 1,
-          bgcolor: "rgba(0, 0, 0, 0.5)",
-          backdropFilter: "blur(5px)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // dark semi-transparent
+      backdropFilter: "blur(5px)",
         }}
       >
         <Box
@@ -786,3 +786,4 @@ const PnPkc = () => {
 };
 
 export default PnPkc;
+// bgcolor: "rgba(0, 0, 0, 0.5)",

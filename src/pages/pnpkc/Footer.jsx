@@ -146,8 +146,8 @@ const FooterSection = () => {
           alignItems: "center",
           justifyContent: "center",
           p: 1,
-          bgcolor: "rgba(0, 0, 0, 0.5)",
-          backdropFilter: "blur(5px)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)", // dark semi-transparent
+      backdropFilter: "blur(5px)",
         }}
       >
         <Box
